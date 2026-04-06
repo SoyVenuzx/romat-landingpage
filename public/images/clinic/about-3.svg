@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" fill="#EFFAF6" />
+  <rect x="70" y="66" width="660" height="388" rx="26" fill="white" />
+  <rect x="140" y="154" width="220" height="220" rx="20" fill="#D4F7EC" />
+  <rect x="390" y="154" width="270" height="44" rx="10" fill="#DCEAFF" />
+  <rect x="390" y="216" width="220" height="30" rx="8" fill="#E7F8F1" />
+  <rect x="390" y="262" width="220" height="30" rx="8" fill="#E7F8F1" />
+  <text x="400" y="488" text-anchor="middle" fill="#2E4B73" font-size="22" font-family="Arial, sans-serif" font-weight="700">
+    Equipo medico ROMAT
+  </text>
+</svg>

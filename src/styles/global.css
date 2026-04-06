@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 99%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 224 82% 47%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 213 94% 68%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 158 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 82% 47%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --navy: 220 60% 12%;
+    --navy-foreground: 210 40% 96%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 224 82% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 213 94% 68%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 158 84% 44%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 224 82% 55%;
+    --navy: 220 60% 8%;
+    --navy-foreground: 210 40% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-image:
+      radial-gradient(circle at 12% -10%, hsl(var(--primary) / 0.12), transparent 30%),
+      radial-gradient(circle at 88% 2%, hsl(var(--accent) / 0.1), transparent 26%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(210 35% 98%));
+  }
+
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.05) 0%,
+      hsl(var(--secondary) / 0.08) 50%,
+      hsl(var(--accent) / 0.05) 100%
+    );
+  }
+
+  .shadow-card {
+    box-shadow:
+      0 4px 24px -4px hsl(var(--primary) / 0.08),
+      0 1px 4px hsl(var(--primary) / 0.04);
+  }
+
+  .shadow-card-hover {
+    box-shadow:
+      0 12px 40px -8px hsl(var(--primary) / 0.15),
+      0 4px 12px hsl(var(--primary) / 0.06);
+  }
+
+  .site-bg-texture {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.24;
+    background-image:
+      radial-gradient(hsl(var(--primary) / 0.12) 0.8px, transparent 0.8px),
+      linear-gradient(90deg, hsl(var(--border) / 0.32) 1px, transparent 1px),
+      linear-gradient(hsl(var(--border) / 0.28) 1px, transparent 1px);
+    background-size: 24px 24px, 96px 96px, 96px 96px;
+    background-position: 0 0, -1px -1px, -1px -1px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  }
+
+  .site-bg-aurora {
+    position: fixed;
+    inset: -15% -5% auto;
+    height: 65vh;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    filter: blur(36px);
+    background:
+      radial-gradient(circle at 18% 8%, hsl(var(--primary) / 0.25), transparent 38%),
+      radial-gradient(circle at 84% 12%, hsl(var(--accent) / 0.24), transparent 36%),
+      radial-gradient(circle at 54% 0%, hsl(var(--secondary) / 0.2), transparent 34%);
+    animation: aurora-drift 18s ease-in-out infinite alternate;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+[data-reveal] {
+  opacity: 0;
+}
+
+[data-reveal].is-revealed {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.promo-details-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-4px);
+  transition: max-height 360ms ease, opacity 220ms ease, transform 320ms ease;
+  will-change: max-height, opacity, transform;
+}
+
+.promo-details-panel.is-open {
+  max-height: 560px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes aurora-drift {
+  0% {
+    transform: translate3d(-2%, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(2%, 1.5%, 0) scale(1.06);
+  }
+}
+
+@keyframes badge-bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -3px);
+  }
+}
+
+.whatsapp-badge {
+  animation: badge-bob 2.8s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+
+  .site-bg-texture {
+    opacity: 0.36;
+  }
+}
+
+@media (max-width: 767px) {
+  main > section + section {
+    position: relative;
+  }
+
+  main > section + section::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--border) / 0.95), transparent);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+  }
+}

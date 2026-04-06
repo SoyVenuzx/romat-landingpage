@@ -1,0 +1,117 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '../styles/global.css';
+import FloatingWhatsApp from '../components/ui/FloatingWhatsApp.astro';
+import {
+  buildLocalBusinessSchema,
+  buildPageMeta,
+  clinicBusinessData,
+  type PageMetaInput,
+} from '../utils/seo';
+
+interface Props {
+  meta: PageMetaInput;
+}
+
+const { meta } = Astro.props;
+const site = Astro.site?.toString() ?? 'https://www.serviciosmedicosromat.com';
+const pageMeta = buildPageMeta(meta, site);
+const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMeta.canonicalUrl);
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageMeta.description} />
+    <meta name="robots" content={pageMeta.noIndex ? 'noindex, nofollow' : 'index, follow'} />
+
+    <meta property="og:type" content={pageMeta.type} />
+    <meta property="og:site_name" content={clinicBusinessData.name} />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:title" content={pageMeta.title} />
+    <meta property="og:description" content={pageMeta.description} />
+    <meta property="og:url" content={pageMeta.canonicalUrl} />
+    <meta property="og:image" content={pageMeta.imageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageMeta.title} />
+    <meta name="twitter:description" content={pageMeta.description} />
+    <meta name="twitter:image" content={pageMeta.imageUrl} />
+
+    <link rel="canonical" href={pageMeta.canonicalUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+
+    <title>{pageMeta.title}</title>
+    <ViewTransitions />
+  </head>
+  <body class="relative antialiased">
+    <div aria-hidden="true" class="site-bg-aurora hidden md:block"></div>
+    <div aria-hidden="true" class="site-bg-texture"></div>
+
+    <div class="relative z-10">
+      <slot />
+      <FloatingWhatsApp />
+    </div>
+
+    <script is:inline>
+      const revealElements = () => {
+        const targets = [...document.querySelectorAll('[data-reveal]:not([data-reveal-bound])')].filter(
+          (element) => !element.closest('astro-island'),
+        );
+
+        if (!targets.length) {
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) {
+                continue;
+              }
+
+              const element = entry.target;
+              const delay = element.getAttribute('data-delay');
+              if (delay) {
+                element.style.animationDelay = `${delay}ms`;
+              }
+
+              element.classList.add('is-revealed');
+              observer.unobserve(element);
+            }
+          },
+          { threshold: 0.15 },
+        );
+
+        targets.forEach((element) => {
+          element.setAttribute('data-reveal-bound', 'true');
+          observer.observe(element);
+        });
+      };
+
+      const initializePage = () => {
+        revealElements();
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializePage, { once: true });
+      } else {
+        initializePage();
+      }
+
+      document.addEventListener('astro:page-load', initializePage);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+import { Heart, ShieldCheck } from 'lucide-react';
+---
+
+<section id="nosotros" class="py-16 lg:py-20">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="flex flex-col items-center gap-10 lg:flex-row lg:gap-14">
+      <div class="flex-1" data-reveal>
+        <span
+          class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
+        >
+          Sobre nosotros
+        </span>
+        <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          Una clinica comprometida con tu bienestar
+        </h2>
+        <p class="mb-4 leading-relaxed text-muted-foreground">
+          Desde hace mas de 15 anos, Servicios Medicos ROMAT ha sido un pilar de salud en nuestra
+          comunidad. Nuestro compromiso es ofrecer atencion medica de la mas alta calidad con un
+          trato humano y cercano.
+        </p>
+        <p class="leading-relaxed text-muted-foreground">
+          Contamos con instalaciones modernas, un equipo de especialistas certificados y un
+          laboratorio propio que nos permite brindarte diagnosticos rapidos y confiables.
+        </p>
+
+        <div class="mt-8 flex items-center gap-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15">
+            <Heart size={20} class="text-accent" />
+          </div>
+          <p class="text-sm font-semibold text-foreground">
+            "Nuestra mayor satisfaccion es la salud de nuestros pacientes"
+          </p>
+        </div>
+      </div>
+
+      <div class="flex-1" data-reveal data-delay="180">
+        <div class="grid grid-cols-2 gap-3 sm:gap-4">
+          <div class="col-span-2 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+            <img
+              src="/images/clinic/about-1.svg"
+              alt="Instalaciones de Servicios Medicos ROMAT"
+              class="h-56 w-full object-cover sm:h-64"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+            <img
+              src="/images/clinic/about-2.svg"
+              alt="Area de atencion medica de ROMAT"
+              class="h-36 w-full object-cover sm:h-40"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+            <img
+              src="/images/clinic/about-3.svg"
+              alt="Equipo de especialistas de ROMAT"
+              class="h-36 w-full object-cover sm:h-40"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="col-span-2 rounded-2xl border border-border bg-card p-4 shadow-card">
+            <div class="inline-flex items-center gap-2 text-sm font-bold text-foreground">
+              <ShieldCheck size={16} class="text-primary" />
+              Instalaciones equipadas para consulta, diagnostico y seguimiento integral.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

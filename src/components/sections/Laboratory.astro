@@ -1,0 +1,251 @@
+---
+import {
+  BadgeCheck,
+  CalendarCheck2,
+  ChevronDown,
+  Clock3,
+  Dna,
+  Droplets,
+  FlaskConical,
+  TestTube2,
+  type LucideIcon,
+} from 'lucide-react';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { labPromotions, labServices, type LabIcon } from '../../data/lab';
+
+const iconMap: Record<LabIcon, LucideIcon> = {
+  Droplets,
+  Dna,
+  TestTube2,
+  FlaskConical,
+};
+---
+
+<section id="laboratorio" class="bg-muted/40 py-16 lg:py-20">
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="mb-10 lg:mb-12">
+      <SectionHeading
+        badge="Laboratorio clinico"
+        badgeColor="accent"
+        title="Resultados confiables y rapidos"
+        description="Procesos de laboratorio pensados para diagnostico oportuno, seguimiento medico y prevencion continua."
+      />
+    </div>
+
+    <div class="grid items-stretch gap-6 lg:grid-cols-2">
+      <article class="rounded-2xl border border-border bg-card p-5 shadow-card" data-reveal>
+        <header class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Estudios mas solicitados</h3>
+          <span class="inline-flex w-fit whitespace-nowrap rounded-full bg-primary/10 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-primary">
+            Entrega rapida
+          </span>
+        </header>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          {labServices.map((service, index) => {
+            const Icon = iconMap[service.icon];
+
+            return (
+              <div
+                class="rounded-xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:shadow-card"
+                data-reveal
+                data-delay={70 + index * 70}
+              >
+                <div class="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/15">
+                  <Icon size={20} class="text-accent" />
+                </div>
+                <h4 class="text-sm font-bold text-foreground">{service.name}</h4>
+                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">{service.desc}</p>
+
+                <span class="mt-3 inline-flex items-center gap-1 rounded-md bg-muted px-2 py-1 text-[11px] font-semibold text-muted-foreground">
+                  <Clock3 size={12} class="text-primary" />
+                  {service.turnaround}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </article>
+
+      <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card" data-reveal data-delay="120">
+        <img
+          src="/images/clinic/lab-1.svg"
+          alt="Area de laboratorio de Servicios Medicos ROMAT"
+          class="h-48 w-full object-cover sm:h-56"
+          loading="lazy"
+        />
+
+        <div class="flex flex-1 flex-col p-5">
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Atencion de laboratorio con seguimiento medico</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+            Integramos toma de muestra, analisis y orientacion clinica para que el paciente entienda sus resultados con claridad.
+          </p>
+
+          <ul class="mt-4 space-y-2">
+            <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Procesos de laboratorio para control y prevencion.
+            </li>
+            <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
+              <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
+              Reportes claros para apoyar decisiones clinicas y seguimiento de tratamientos.
+            </li>
+          </ul>
+
+          <a
+            href="#contacto"
+            class="mt-5 inline-flex h-11 w-fit items-center justify-center gap-2 rounded-xl bg-accent px-6 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
+          >
+            <CalendarCheck2 size={16} />
+            Solicitar estudio
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <section id="lab-promotions" class="mt-8" data-reveal data-delay="160">
+      <div class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <h3 class="text-xl font-extrabold text-foreground">Promociones activas</h3>
+        <span class="inline-flex w-fit items-center rounded-full bg-accent/15 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-accent">
+          Paquetes vigentes
+        </span>
+      </div>
+
+      <div class="grid items-start gap-4 md:auto-rows-min md:grid-cols-2">
+        {labPromotions.map((promo, index) => (
+          <article
+            data-promo-card
+            class="group h-fit self-start rounded-2xl border border-border bg-card p-4 shadow-card"
+            data-reveal
+            data-delay={200 + index * 70}
+          >
+            <button
+              type="button"
+              data-promo-trigger
+              aria-expanded="false"
+              aria-controls={`promo-panel-${promo.id}`}
+              class="flex w-full cursor-pointer items-start justify-between gap-3 text-left"
+            >
+              <div>
+                <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">
+                  <BadgeCheck size={12} />
+                  {promo.badge}
+                </span>
+                <h4 class="mt-2 text-base font-bold text-foreground">{promo.title}</h4>
+                <p class="mt-1 text-sm text-muted-foreground">{promo.summary}</p>
+              </div>
+
+              <span class="mt-0.5 inline-flex shrink-0 items-center gap-1 text-xs font-bold text-primary">
+                Ver detalles
+                <ChevronDown
+                  size={14}
+                  data-promo-chevron
+                  class="transition-transform duration-300"
+                />
+              </span>
+            </button>
+
+            <div
+              id={`promo-panel-${promo.id}`}
+              data-promo-panel
+              aria-hidden="true"
+              class="promo-details-panel mt-3"
+              style="height:0px"
+            >
+              <div class="promo-details-inner min-h-0 overflow-hidden border-t border-border/80 pt-3">
+                <ul class="space-y-1.5 text-sm text-muted-foreground">
+                  {promo.includes.map((item) => (
+                    <li class="flex items-start gap-3 leading-relaxed">
+                      <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <p class="mt-3 text-xs font-semibold text-primary">{promo.validity}</p>
+
+                <a
+                  href="#contacto"
+                  class="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
+                >
+                  <CalendarCheck2 size={16} />
+                  Agendar con esta promocion
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</section>
+
+<script is:inline>
+  const setupLabPromotions = () => {
+    const root = document.getElementById('lab-promotions');
+    if (!root) return;
+
+    const cards = Array.from(root.querySelectorAll('[data-promo-card]'));
+
+    cards.forEach((card) => {
+      if (card.dataset.bound === 'true') return;
+
+      const trigger = card.querySelector('[data-promo-trigger]');
+      const panel = card.querySelector('[data-promo-panel]');
+      const chevron = card.querySelector('[data-promo-chevron]');
+      const inner = panel?.firstElementChild;
+
+      if (!trigger || !panel || !inner) return;
+
+      const openPanel = () => {
+        panel.classList.add('is-open');
+        panel.style.height = `${inner.scrollHeight}px`;
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
+        chevron?.classList.add('rotate-180');
+      };
+
+      const closePanel = () => {
+        const currentHeight = panel.offsetHeight;
+        panel.style.height = `${currentHeight}px`;
+        panel.classList.remove('is-open');
+
+        requestAnimationFrame(() => {
+          panel.style.height = '0px';
+        });
+
+        trigger.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
+        chevron?.classList.remove('rotate-180');
+      };
+
+      const togglePanel = () => {
+        if (panel.classList.contains('is-open')) {
+          closePanel();
+          return;
+        }
+
+        openPanel();
+      };
+
+      trigger.addEventListener('click', togglePanel);
+
+      panel.addEventListener('transitionend', (event) => {
+        if (event.propertyName !== 'height') return;
+        if (panel.classList.contains('is-open')) {
+          panel.style.height = 'auto';
+        }
+      });
+
+      card.dataset.bound = 'true';
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLabPromotions, { once: true });
+  } else {
+    setupLabPromotions();
+  }
+
+  document.addEventListener('astro:page-load', setupLabPromotions);
+</script>

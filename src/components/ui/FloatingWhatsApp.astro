@@ -1,0 +1,24 @@
+---
+import { MessageCircle } from 'lucide-react';
+import { clinicBusinessData } from '../../utils/seo';
+
+const whatsappHref = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, '')}`;
+---
+
+<div class="fixed bottom-5 right-4 z-40 sm:bottom-6 sm:right-6">
+  <a
+    href={whatsappHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    class="group relative inline-flex h-[4.35rem] w-[4.35rem] items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_22px_44px_-14px_hsl(var(--accent)/0.8)] transition-all hover:-translate-y-1 hover:bg-accent/90 hover:shadow-[0_26px_50px_-16px_hsl(var(--accent)/0.92)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+  >
+    <span
+      class="whatsapp-badge pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-card px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-foreground shadow-card"
+    >
+      Agenda ya
+    </span>
+
+    <MessageCircle size={34} />
+  </a>
+</div>

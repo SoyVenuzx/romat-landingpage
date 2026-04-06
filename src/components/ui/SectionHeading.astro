@@ -1,0 +1,28 @@
+---
+interface Props {
+  badge: string;
+  title: string;
+  description?: string;
+  badgeColor?: 'primary' | 'accent';
+}
+
+const {
+  badge,
+  title,
+  description,
+  badgeColor = 'primary',
+} = Astro.props;
+
+const badgeClass =
+  badgeColor === 'accent'
+    ? 'bg-accent/15 text-accent'
+    : 'bg-primary/10 text-primary';
+---
+
+<div class="text-center" data-reveal>
+  <span class={`mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider ${badgeClass}`}>
+    {badge}
+  </span>
+  <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{title}</h2>
+  {description && <p class="mx-auto max-w-2xl text-muted-foreground">{description}</p>}
+</div>
