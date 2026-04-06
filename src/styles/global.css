@@ -215,6 +215,13 @@
   .site-bg-texture {
     opacity: 0.36;
   }
+
+  [data-promo-panel] {
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    height: auto !important;
+  }
 }
 
 @media (max-width: 767px) {
