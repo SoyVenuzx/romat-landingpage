@@ -1,7 +1,7 @@
 ---
 import { Clock3 } from 'lucide-react';
-import MobileNavbar from '../islands/MobileNavbar';
 import { clinicBusinessHours } from '../../data/clinic-info';
+import MobileNavbar from '../islands/MobileNavbar';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -16,30 +16,40 @@ const navLinks = [
   id="site-header"
   class="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent transition-all duration-300"
 >
-  <nav class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8">
+  <nav
+    class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8"
+  >
     <a href="#inicio" class="flex items-center gap-2" aria-label="Ir al inicio">
-      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
+      <div
+        class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary"
+      >
         <span class="text-lg font-extrabold text-primary-foreground">R</span>
       </div>
       <div class="flex flex-col">
-        <span class="text-lg font-extrabold tracking-tight text-foreground">ROMAT</span>
-        <span class="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+        <span class="text-lg font-extrabold tracking-tight text-foreground"
+          >ROMAT</span
+        >
+        <span
+          class="text-[10px] font-medium uppercase tracking-widest text-muted-foreground"
+        >
           Servicios Medicos
         </span>
       </div>
     </a>
 
     <ul class="hidden items-center gap-8 lg:flex">
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary"
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
 
     <div class="hidden items-center lg:flex">
@@ -52,23 +62,33 @@ const navLinks = [
         data-weekend-open={clinicBusinessHours.weekend.openMinutes}
         data-weekend-close={clinicBusinessHours.weekend.closeMinutes}
       >
-        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10">
+        <span
+          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10"
+        >
           <Clock3 size={14} className="text-primary" />
         </span>
         <span class="leading-tight">
           <span class="inline-flex items-center gap-1.5">
-            <span id="clinic-open-dot" class="h-2.5 w-2.5 rounded-full bg-muted-foreground/40"></span>
-            <span id="clinic-open-label" class="block text-[11px] font-bold text-foreground">
+            <span
+              id="clinic-open-dot"
+              class="h-2.5 w-2.5 rounded-full bg-muted-foreground/40"></span>
+            <span
+              id="clinic-open-label"
+              class="block text-[11px] font-bold text-foreground"
+            >
               Verificando horario...
             </span>
           </span>
-          <span id="clinic-open-meta" class="block text-[10px] text-muted-foreground">
+          <span
+            id="clinic-open-meta"
+            class="block text-[10px] text-muted-foreground"
+          >
             Hora Nicaragua
           </span>
         </span>
       </div>
     </div>
- 
+
     <MobileNavbar client:load navLinks={navLinks} />
   </nav>
 </header>
@@ -84,10 +104,20 @@ const navLinks = [
 
     const onScroll = () => {
       if (window.scrollY > 40) {
-        header.classList.add('bg-card/95', 'backdrop-blur-md', 'shadow-card', 'border-border');
+        header.classList.add(
+          'bg-card/95',
+          'backdrop-blur-md',
+          'shadow-card',
+          'border-border',
+        );
         header.classList.remove('bg-transparent', 'border-transparent');
       } else {
-        header.classList.remove('bg-card/95', 'backdrop-blur-md', 'shadow-card', 'border-border');
+        header.classList.remove(
+          'bg-card/95',
+          'backdrop-blur-md',
+          'shadow-card',
+          'border-border',
+        );
         header.classList.add('bg-transparent', 'border-transparent');
       }
     };
@@ -148,9 +178,14 @@ const navLinks = [
       });
 
       const parts = formatter.formatToParts(new Date());
-      const dayName = parts.find((part) => part.type === 'weekday')?.value || 'Mon';
-      const hour = Number(parts.find((part) => part.type === 'hour')?.value || '0');
-      const minute = Number(parts.find((part) => part.type === 'minute')?.value || '0');
+      const dayName =
+        parts.find((part) => part.type === 'weekday')?.value || 'Mon';
+      const hour = Number(
+        parts.find((part) => part.type === 'hour')?.value || '0',
+      );
+      const minute = Number(
+        parts.find((part) => part.type === 'minute')?.value || '0',
+      );
 
       return {
         dayIndex: dayMap[dayName] ?? 1,
@@ -193,7 +228,9 @@ const navLinks = [
       try {
         const current = getCurrentTime();
         const dayWindow = getDayWindow(current.dayIndex);
-        const isOpen = current.minutes >= dayWindow.open && current.minutes < dayWindow.close;
+        const isOpen =
+          current.minutes >= dayWindow.open &&
+          current.minutes < dayWindow.close;
 
         statusLabel.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
 
@@ -201,7 +238,7 @@ const navLinks = [
           statusMeta.textContent = `Cierra ${formatMinutes(dayWindow.close)}`;
         } else {
           const nextOpening = getNextOpening(current.dayIndex, current.minutes);
-          statusMeta.textContent = `${nextOpening.isToday ? 'Abre' : 'Manana abre'} ${formatMinutes(nextOpening.open)}`;
+          statusMeta.textContent = `${nextOpening.isToday ? 'Abre' : 'Mañana abre'} ${formatMinutes(nextOpening.open)}`;
         }
 
         statusDot.classList.toggle('bg-accent', isOpen);
@@ -221,10 +258,16 @@ const navLinks = [
     if (window.__romatClinicStatusInterval) {
       window.clearInterval(window.__romatClinicStatusInterval);
     }
-    window.__romatClinicStatusInterval = window.setInterval(updateStatus, 60_000);
+    window.__romatClinicStatusInterval = window.setInterval(
+      updateStatus,
+      60_000,
+    );
 
     if (window.__romatClinicStatusVisibilityHandler) {
-      document.removeEventListener('visibilitychange', window.__romatClinicStatusVisibilityHandler);
+      document.removeEventListener(
+        'visibilitychange',
+        window.__romatClinicStatusVisibilityHandler,
+      );
     }
 
     const onVisibilityChange = () => {
@@ -243,7 +286,9 @@ const navLinks = [
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavbar, { once: true });
+    document.addEventListener('DOMContentLoaded', initializeNavbar, {
+      once: true,
+    });
   } else {
     initializeNavbar();
   }

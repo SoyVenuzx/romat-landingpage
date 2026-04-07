@@ -1,5 +1,5 @@
 ---
-import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Mail, MessageCircle } from 'lucide-react';
 import { clinicBusinessData } from '../../utils/seo';
 
 const quickLinks = [
@@ -11,6 +11,7 @@ const quickLinks = [
 ];
 
 const services = ['Medicina General', 'Cardiologia', 'Pediatria', 'Laboratorio', 'Ortopedia'];
+const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, '')}`;
 ---
 
 <footer class="bg-navy text-navy-foreground">
@@ -55,9 +56,16 @@ const services = ['Medicina General', 'Cardiologia', 'Pediatria', 'Laboratorio',
       <div>
         <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50">Contacto</h4>
         <ul class="space-y-3 text-sm">
-          <li class="flex items-center gap-2 text-navy-foreground/70">
-            <Phone size={14} />
-            {clinicBusinessData.phone}
+          <li>
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg bg-navy-foreground/10 px-3 py-2 text-navy-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+            >
+              <MessageCircle size={14} />
+              WhatsApp: {clinicBusinessData.whatsappNumber}
+            </a>
           </li>
           <li class="flex items-center gap-2 text-navy-foreground/70">
             <Mail size={14} />

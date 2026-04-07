@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Send } from 'lucide-react';
 
 type ContactFormProps = {
@@ -7,73 +7,63 @@ type ContactFormProps = {
 };
 
 type FormValues = {
-  name: string;
+  fullName: string;
+  age: string;
   phone: string;
   service: string;
-  preferredDate: string;
   message: string;
 };
 
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const initialValues: FormValues = {
-  name: '',
+  fullName: '',
+  age: '',
   phone: '',
   service: '',
-  preferredDate: '',
   message: '',
 };
 
 const normalizePhone = (value: string) => value.replace(/\D/g, '');
 
-const formatDate = (isoDate: string) => {
-  if (!isoDate) {
-    return '';
+const validate = (currentValues: FormValues) => {
+  const nextErrors: FormErrors = {};
+
+  const cleanName = currentValues.fullName.trim();
+  if (!cleanName) {
+    nextErrors.fullName = 'Ingresa el nombre completo del paciente.';
+  } else {
+    const words = cleanName.split(/\s+/).filter(Boolean);
+    if (cleanName.length < 6 || words.length < 2) {
+      nextErrors.fullName = 'Ingresa nombre y apellido para continuar.';
+    }
   }
 
-  const [year, month, day] = isoDate.split('-');
-  return `${day}/${month}/${year}`;
+  const parsedAge = Number(currentValues.age);
+  if (!currentValues.age) {
+    nextErrors.age = 'Ingresa la edad del paciente.';
+  } else if (!Number.isFinite(parsedAge) || parsedAge < 0 || parsedAge > 120) {
+    nextErrors.age = 'La edad debe estar entre 0 y 120 anos.';
+  }
+
+  const cleanPhone = normalizePhone(currentValues.phone);
+  if (!cleanPhone) {
+    nextErrors.phone = 'Ingresa un numero de telefono.';
+  } else if (cleanPhone.length < 8) {
+    nextErrors.phone = 'El telefono debe tener al menos 8 digitos.';
+  }
+
+  if (!currentValues.service.trim()) {
+    nextErrors.service = 'Selecciona un servicio de interes.';
+  }
+
+  return nextErrors;
 };
 
-export default function ContactForm({
-  clinicWhatsApp,
-  serviceOptions,
-}: ContactFormProps) {
+export default function ContactForm({ clinicWhatsApp, serviceOptions }: ContactFormProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const minDate = useMemo(() => {
-    const date = new Date();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${date.getFullYear()}-${month}-${day}`;
-  }, []);
-
-  const validate = (currentValues: FormValues) => {
-    const nextErrors: FormErrors = {};
-
-    if (!currentValues.name.trim()) {
-      nextErrors.name = 'Ingresa tu nombre completo.';
-    }
-
-    const cleanPhone = normalizePhone(currentValues.phone);
-    if (!cleanPhone) {
-      nextErrors.phone = 'Ingresa un telefono de contacto.';
-    } else if (cleanPhone.length < 10) {
-      nextErrors.phone = 'El telefono debe tener al menos 10 digitos.';
-    }
-
-    if (!currentValues.service.trim()) {
-      nextErrors.service = 'Selecciona un servicio.';
-    }
-
-    if (!currentValues.preferredDate) {
-      nextErrors.preferredDate = 'Selecciona una fecha preferida.';
-    }
-
-    return nextErrors;
-  };
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -100,62 +90,117 @@ export default function ContactForm({
 
     const whatsappNumber = normalizePhone(clinicWhatsApp);
     const whatsappMessage = [
-      'Hola, me gustaria agendar una cita en Servicios Medicos ROMAT.',
+      'Hola, deseo agendar una cita en Servicios Medicos ROMAT.',
       '',
-      `Nombre: ${values.name.trim()}`,
-      `Telefono: ${values.phone.trim()}`,
-      `Servicio: ${values.service}`,
-      `Fecha preferida: ${formatDate(values.preferredDate)}`,
-      `Mensaje: ${values.message.trim() || 'Sin mensaje adicional.'}`,
+      'Datos del paciente:',
+      `- Nombre completo: ${values.fullName.trim()}`,
+      `- Edad: ${values.age.trim()} anos`,
+      `- Telefono: ${values.phone.trim()}`,
+      `- Servicio de interes: ${values.service}`,
+      `- Mensaje adicional: ${values.message.trim() || 'Sin mensaje adicional.'}`,
     ].join('\n');
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
 
-    setTimeout(() => {
+    window.setTimeout(() => {
       setIsSubmitting(false);
-    }, 1200);
+    }, 900);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8 space-y-4" noValidate>
-      <div className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+      <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_130px]">
         <div>
+          <label htmlFor="fullName" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            Nombre completo *
+          </label>
           <input
-            name="name"
-            value={values.name}
+            id="fullName"
+            name="fullName"
+            value={values.fullName}
             onChange={handleChange}
-            placeholder="Nombre completo"
+            placeholder="Nombre y apellido"
+            autoComplete="name"
             required
-            className="flex h-10 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-invalid={Boolean(errors.fullName)}
+            aria-describedby={errors.fullName ? 'error-fullName' : undefined}
+            className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           />
-          {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+          {errors.fullName && (
+            <p id="error-fullName" className="mt-1 text-xs text-destructive">
+              {errors.fullName}
+            </p>
+          )}
         </div>
 
         <div>
+          <label htmlFor="age" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            Edad *
+          </label>
           <input
-            name="phone"
-            value={values.phone}
+            id="age"
+            name="age"
+            value={values.age}
             onChange={handleChange}
-            placeholder="Telefono"
-            type="tel"
+            placeholder="Ej. 34"
+            type="number"
+            min={0}
+            max={120}
             required
-            className="flex h-10 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            aria-invalid={Boolean(errors.age)}
+            aria-describedby={errors.age ? 'error-age' : undefined}
+            className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           />
-          {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+          {errors.age && (
+            <p id="error-age" className="mt-1 text-xs text-destructive">
+              {errors.age}
+            </p>
+          )}
         </div>
       </div>
 
       <div>
+        <label htmlFor="phone" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          Telefono *
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          value={values.phone}
+          onChange={handleChange}
+          placeholder="Numero de contacto"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          required
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? 'error-phone' : undefined}
+          className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        />
+        {errors.phone && (
+          <p id="error-phone" className="mt-1 text-xs text-destructive">
+            {errors.phone}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="service" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          Servicio de interes *
+        </label>
         <select
+          id="service"
           name="service"
           value={values.service}
           onChange={handleChange}
           required
-          className="flex h-10 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-invalid={Boolean(errors.service)}
+          aria-describedby={errors.service ? 'error-service' : undefined}
+          className="flex h-11 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <option value="" disabled>
-            Selecciona un servicio
+            Selecciona una opcion
           </option>
           {serviceOptions.map((service) => (
             <option key={service} value={service}>
@@ -163,43 +208,39 @@ export default function ContactForm({
             </option>
           ))}
         </select>
-        {errors.service && <p className="mt-1 text-xs text-destructive">{errors.service}</p>}
-      </div>
-
-      <div>
-        <input
-          name="preferredDate"
-          value={values.preferredDate}
-          onChange={handleChange}
-          type="date"
-          min={minDate}
-          required
-          className="flex h-10 w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        />
-        {errors.preferredDate && (
-          <p className="mt-1 text-xs text-destructive">{errors.preferredDate}</p>
+        {errors.service && (
+          <p id="error-service" className="mt-1 text-xs text-destructive">
+            {errors.service}
+          </p>
         )}
       </div>
 
       <div>
+        <label htmlFor="message" className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted-foreground">
+          Mensaje opcional
+        </label>
         <textarea
+          id="message"
           name="message"
           value={values.message}
           onChange={handleChange}
-          placeholder="Mensaje (opcional)"
-          rows={3}
-          className="flex min-h-[80px] w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          placeholder="Cuentanos brevemente el motivo de la consulta"
+          rows={4}
+          className="flex min-h-[100px] w-full rounded-xl border border-border bg-card px-3 py-2 text-sm text-foreground ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         />
       </div>
 
-      <button
-        type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-10 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90 sm:w-auto"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Redirigiendo a WhatsApp...' : 'Enviar solicitud'}
-        {!isSubmitting && <Send size={16} />}
-      </button>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs text-muted-foreground">* Campos obligatorios para enviar la solicitud.</p>
+        <button
+          type="submit"
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-80"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Abriendo WhatsApp...' : 'Enviar por WhatsApp'}
+          {!isSubmitting && <Send size={16} />}
+        </button>
+      </div>
     </form>
   );
 }

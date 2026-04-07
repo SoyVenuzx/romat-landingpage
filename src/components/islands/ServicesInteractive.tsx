@@ -47,7 +47,7 @@ export default function ServicesInteractive({
 
   return (
     <>
-      <div className="mb-8 animate-fade-up opacity-0" style={{ animationDelay: '120ms', animationFillMode: 'both' }}>
+      <div className="mb-8 motion-safe:animate-fade-up motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100" style={{ animationDelay: '120ms', animationFillMode: 'both' }}>
         <div className="mx-auto w-full max-w-[22rem] px-1 sm:max-w-max sm:px-0">
           <div className="no-scrollbar overflow-x-auto rounded-2xl px-1 py-1">
             <div className="inline-flex min-w-max gap-1 rounded-2xl bg-muted p-1.5">
@@ -85,7 +85,7 @@ export default function ServicesInteractive({
           return (
             <article
               key={`${animationCycle}-${service.id}`}
-              className="group cursor-default rounded-2xl border border-border bg-card p-6 text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover animate-fade-up opacity-0"
+              className="group cursor-default rounded-2xl border border-border bg-card p-6 text-left shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover motion-safe:animate-fade-up motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100"
               style={{
                 animationDelay: `${80 + index * 70}ms`,
                 animationFillMode: 'both',

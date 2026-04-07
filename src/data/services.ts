@@ -132,9 +132,11 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
 };
 
 export const serviceOptions = [
-  'Consulta general',
+  'Medicina interna',
+  'Medicina general',
   'Cardiologia',
   'Pediatria',
+  'Ortopedia',
   'Laboratorio',
   'Otro',
 ];
