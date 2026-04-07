@@ -84,6 +84,7 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
     background-image:
       radial-gradient(circle at 12% -10%, hsl(var(--primary) / 0.12), transparent 30%),
       radial-gradient(circle at 88% 2%, hsl(var(--accent) / 0.1), transparent 26%),
@@ -261,6 +262,16 @@
     background: linear-gradient(90deg, transparent, hsl(var(--border) / 0.95), transparent);
     opacity: 0.7;
     pointer-events: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  #site-header.mobile-menu-open {
+    background-color: hsl(var(--card) / 0.74) !important;
+    border-color: hsl(var(--border) / 0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 28px -20px hsl(var(--navy) / 0.45);
   }
 }
 

@@ -43,36 +43,30 @@ export const clinicBusinessData: ClinicBusinessData = {
   name: 'Servicios Medicos ROMAT',
   legalName: 'Servicios Medicos ROMAT',
   description:
-    'Clinica medica local en Villa Sol, Sabana Grande (Managua, Nicaragua), con medicina general, especialidades y laboratorio clinico para toda la familia.',
+    'Clinica medica local en Villa Sol, Managua (Nicaragua), con medicina general, especialidades y laboratorio clinico para toda la familia.',
   type: 'MedicalClinic',
-  // TODO: Replace with real clinic data
-  phone: '+505 0000 0000',
-  // TODO: Replace with real clinic data
-  whatsappNumber: '+505 0000 0000',
+  phone: '+505 8360 7978',
+  whatsappNumber: '+505 8360 7978',
   // TODO: Replace with real clinic data
   email: 'contacto@romat.com.ni',
   address: {
-    // TODO: Replace with real clinic data
-    streetAddress: 'Villa Sol, Sabana Grande',
+    streetAddress: 'Villa Sol, Managua',
     addressLocality: 'Managua',
     addressRegion: 'Managua',
     // TODO: Replace with real clinic data
     postalCode: '00000',
     addressCountry: 'NI',
   },
-  // TODO: Replace with real clinic data
   geo: {
-    latitude: 12.1186,
-    longitude: -86.2006,
+    latitude: 12.106097082248313,
+    longitude: -86.15754390556445,
   },
   // TODO: Replace with real clinic data
   openingHours: ['Mo-Fr 08:00-20:00', 'Sa-Su 09:00-14:00'],
   image: '/og-romat.jpg',
   social: {
-    // TODO: Replace with real clinic data
-    facebook: '#',
-    // TODO: Replace with real clinic data
-    instagram: '#',
+    facebook: 'https://www.facebook.com/Atencionmedicaromat',
+    instagram: 'https://www.instagram.com/especialidadesromat/',
   },
 };
 
