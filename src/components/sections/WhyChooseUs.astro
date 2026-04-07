@@ -27,7 +27,7 @@ const highlightCards = [
 
 <section class="bg-muted/45 py-14 lg:py-16">
   <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-6xl">
       <div class="mb-10 text-center" data-reveal>
         <span
           class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
@@ -42,7 +42,7 @@ const highlightCards = [
         </p>
       </div>
 
-      <div class="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
+      <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)]">
         <figure class="overflow-hidden rounded-2xl border border-border bg-card shadow-card" data-reveal data-delay="90">
           <img
             src="/images/clinic/clinic-4.svg"
@@ -60,7 +60,7 @@ const highlightCards = [
               data-delay={130 + index * 85}
             >
               <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15">
-                <card.icon size={22} class="text-accent" />
+                <card.icon size={22} className="text-accent" />
               </div>
 
               <h3 class="mb-2 text-base font-bold text-foreground">{card.title}</h3>

@@ -1,6 +1,7 @@
 ---
-import { MessageCircleMore } from 'lucide-react';
+import { Clock3 } from 'lucide-react';
 import MobileNavbar from '../islands/MobileNavbar';
+import { clinicBusinessHours } from '../../data/clinic-info';
 
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
@@ -41,16 +42,33 @@ const navLinks = [
       ))}
     </ul>
 
-    <div class="hidden items-center gap-3 lg:flex">
-      <a
-        href="#contacto"
-        class="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-accent px-6 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/25 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
+    <div class="hidden items-center lg:flex">
+      <div
+        id="clinic-open-status"
+        class="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/92 px-3 py-1.5 shadow-card backdrop-blur"
+        data-timezone={clinicBusinessHours.timezone}
+        data-weekday-open={clinicBusinessHours.weekday.openMinutes}
+        data-weekday-close={clinicBusinessHours.weekday.closeMinutes}
+        data-weekend-open={clinicBusinessHours.weekend.openMinutes}
+        data-weekend-close={clinicBusinessHours.weekend.closeMinutes}
       >
-        <MessageCircleMore size={18} />
-        Contactanos
-      </a>
+        <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary/10">
+          <Clock3 size={14} className="text-primary" />
+        </span>
+        <span class="leading-tight">
+          <span class="inline-flex items-center gap-1.5">
+            <span id="clinic-open-dot" class="h-2.5 w-2.5 rounded-full bg-muted-foreground/40"></span>
+            <span id="clinic-open-label" class="block text-[11px] font-bold text-foreground">
+              Verificando horario...
+            </span>
+          </span>
+          <span id="clinic-open-meta" class="block text-[10px] text-muted-foreground">
+            Hora Nicaragua
+          </span>
+        </span>
+      </div>
     </div>
-
+ 
     <MobileNavbar client:load navLinks={navLinks} />
   </nav>
 </header>
@@ -59,6 +77,10 @@ const navLinks = [
   const initializeNavbarScrollState = () => {
     const header = document.getElementById('site-header');
     if (!header) return;
+
+    if (window.__romatNavbarScrollHandler) {
+      window.removeEventListener('scroll', window.__romatNavbarScrollHandler);
+    }
 
     const onScroll = () => {
       if (window.scrollY > 40) {
@@ -72,13 +94,159 @@ const navLinks = [
 
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.__romatNavbarScrollHandler = onScroll;
+  };
+
+  const initializeClinicOpenStatus = () => {
+    const statusRoot = document.getElementById('clinic-open-status');
+    const statusDot = document.getElementById('clinic-open-dot');
+    const statusLabel = document.getElementById('clinic-open-label');
+    const statusMeta = document.getElementById('clinic-open-meta');
+
+    if (!statusRoot || !statusDot || !statusLabel || !statusMeta) {
+      return;
+    }
+
+    const parseValue = (value, fallback) => {
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : fallback;
+    };
+
+    const schedule = {
+      timeZone: statusRoot.dataset.timezone || 'America/Managua',
+      weekdayOpen: parseValue(statusRoot.dataset.weekdayOpen, 8 * 60),
+      weekdayClose: parseValue(statusRoot.dataset.weekdayClose, 20 * 60),
+      weekendOpen: parseValue(statusRoot.dataset.weekendOpen, 9 * 60),
+      weekendClose: parseValue(statusRoot.dataset.weekendClose, 14 * 60),
+    };
+
+    const dayMap = {
+      Sun: 0,
+      Mon: 1,
+      Tue: 2,
+      Wed: 3,
+      Thu: 4,
+      Fri: 5,
+      Sat: 6,
+    };
+
+    const formatMinutes = (totalMinutes) => {
+      const hours24 = Math.floor(totalMinutes / 60) % 24;
+      const minutes = totalMinutes % 60;
+      const suffix = hours24 >= 12 ? 'PM' : 'AM';
+      const hours12 = ((hours24 + 11) % 12) + 1;
+      return `${hours12}:${String(minutes).padStart(2, '0')} ${suffix}`;
+    };
+
+    const getCurrentTime = () => {
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: schedule.timeZone,
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+      });
+
+      const parts = formatter.formatToParts(new Date());
+      const dayName = parts.find((part) => part.type === 'weekday')?.value || 'Mon';
+      const hour = Number(parts.find((part) => part.type === 'hour')?.value || '0');
+      const minute = Number(parts.find((part) => part.type === 'minute')?.value || '0');
+
+      return {
+        dayIndex: dayMap[dayName] ?? 1,
+        minutes: hour * 60 + minute,
+      };
+    };
+
+    const getDayWindow = (dayIndex) => {
+      if (dayIndex >= 1 && dayIndex <= 5) {
+        return {
+          open: schedule.weekdayOpen,
+          close: schedule.weekdayClose,
+        };
+      }
+
+      return {
+        open: schedule.weekendOpen,
+        close: schedule.weekendClose,
+      };
+    };
+
+    const getNextOpening = (dayIndex, currentMinutes) => {
+      const todayWindow = getDayWindow(dayIndex);
+
+      if (currentMinutes < todayWindow.open) {
+        return {
+          isToday: true,
+          open: todayWindow.open,
+        };
+      }
+
+      const nextDay = (dayIndex + 1) % 7;
+      return {
+        isToday: false,
+        open: getDayWindow(nextDay).open,
+      };
+    };
+
+    const updateStatus = () => {
+      try {
+        const current = getCurrentTime();
+        const dayWindow = getDayWindow(current.dayIndex);
+        const isOpen = current.minutes >= dayWindow.open && current.minutes < dayWindow.close;
+
+        statusLabel.textContent = isOpen ? 'Abierto ahora' : 'Cerrado ahora';
+
+        if (isOpen) {
+          statusMeta.textContent = `Cierra ${formatMinutes(dayWindow.close)}`;
+        } else {
+          const nextOpening = getNextOpening(current.dayIndex, current.minutes);
+          statusMeta.textContent = `${nextOpening.isToday ? 'Abre' : 'Manana abre'} ${formatMinutes(nextOpening.open)}`;
+        }
+
+        statusDot.classList.toggle('bg-accent', isOpen);
+        statusDot.classList.toggle('bg-muted-foreground/40', !isOpen);
+        statusRoot.classList.toggle('border-accent/40', isOpen);
+      } catch {
+        statusLabel.textContent = 'Horario disponible';
+        statusMeta.textContent = 'Horario regular';
+        statusDot.classList.remove('bg-accent');
+        statusDot.classList.add('bg-muted-foreground/40');
+        statusRoot.classList.remove('border-accent/40');
+      }
+    };
+
+    updateStatus();
+
+    if (window.__romatClinicStatusInterval) {
+      window.clearInterval(window.__romatClinicStatusInterval);
+    }
+    window.__romatClinicStatusInterval = window.setInterval(updateStatus, 60_000);
+
+    if (window.__romatClinicStatusVisibilityHandler) {
+      document.removeEventListener('visibilitychange', window.__romatClinicStatusVisibilityHandler);
+    }
+
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        updateStatus();
+      }
+    };
+
+    window.__romatClinicStatusVisibilityHandler = onVisibilityChange;
+    document.addEventListener('visibilitychange', onVisibilityChange);
+  };
+
+  const initializeNavbar = () => {
+    initializeNavbarScrollState();
+    initializeClinicOpenStatus();
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeNavbarScrollState, { once: true });
+    document.addEventListener('DOMContentLoaded', initializeNavbar, { once: true });
   } else {
-    initializeNavbarScrollState();
+    initializeNavbar();
   }
 
-  document.addEventListener('astro:page-load', initializeNavbarScrollState);
+  document.addEventListener('astro:page-load', initializeNavbar);
 </script>

@@ -35,7 +35,7 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
             rel="noopener noreferrer"
             class="flex items-center gap-3 rounded-xl bg-[hsl(145,78%,40%)]/12 p-4 transition-colors hover:bg-[hsl(145,78%,40%)]/20"
           >
-            <MessageCircle size={22} class="text-[hsl(145,78%,40%)]" />
+            <MessageCircle size={22} className="text-[hsl(145,78%,40%)]" />
             <div>
               <p class="text-sm font-bold text-foreground">WhatsApp</p>
               <p class="text-xs text-muted-foreground">{clinicBusinessData.whatsappNumber}</p>
@@ -43,7 +43,7 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
           </a>
 
           <div class="flex items-center gap-3 rounded-xl bg-muted p-4">
-            <Phone size={20} class="text-primary" />
+            <Phone size={20} className="text-primary" />
             <div>
               <p class="text-sm font-bold text-foreground">Telefono</p>
               <p class="text-xs text-muted-foreground">{clinicBusinessData.phone}</p>
@@ -51,17 +51,17 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
           </div>
 
           <div class="flex items-center gap-3 rounded-xl bg-muted p-4">
-            <MapPin size={20} class="text-primary" />
+            <MapPin size={20} className="text-primary" />
             <div>
               <p class="text-sm font-bold text-foreground">Direccion</p>
               <p class="text-xs text-muted-foreground">
-                {clinicBusinessData.address.streetAddress}, {clinicBusinessData.address.addressLocality}
+                {clinicBusinessData.address.streetAddress}, {clinicBusinessData.address.addressLocality}, {clinicBusinessData.address.addressRegion}, {clinicBusinessData.address.addressCountry}
               </p>
             </div>
           </div>
 
           <div class="flex items-center gap-3 rounded-xl bg-muted p-4">
-            <Clock size={20} class="text-primary" />
+            <Clock size={20} className="text-primary" />
             <div>
               <p class="text-sm font-bold text-foreground">Horario</p>
               <p class="text-xs text-muted-foreground">{clinicSchedule.weekdays}</p>
@@ -92,7 +92,7 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
         <div class="h-full min-h-[400px] overflow-hidden rounded-2xl border border-border shadow-card">
           <iframe
             title="Ubicacion Servicios Medicos ROMAT"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.661847890147!2d-99.16869568509435!3d19.427023986886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sCiudad%20de%20Mexico!5e0!3m2!1ses-419!2smx!4v1710000000000!5m2!1ses-419!2smx"
+            src="https://www.google.com/maps?q=Villa+Sol,+Sabana+Grande,+Managua,+Nicaragua&output=embed"
             width="100%"
             height="100%"
             style="border:0;min-height:400px"

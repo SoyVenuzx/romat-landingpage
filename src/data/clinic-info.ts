@@ -3,6 +3,18 @@ export const clinicSchedule = {
   weekend: 'Sabado y Domingo: 9:00 AM - 2:00 PM',
 };
 
+export const clinicBusinessHours = {
+  timezone: 'America/Managua',
+  weekday: {
+    openMinutes: 8 * 60,
+    closeMinutes: 20 * 60,
+  },
+  weekend: {
+    openMinutes: 9 * 60,
+    closeMinutes: 14 * 60,
+  },
+};
+
 export const homeConsultation = {
   title: 'Consultas a domicilio',
   description:
