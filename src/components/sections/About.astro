@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { Heart, ShieldCheck } from 'lucide-react';
+import consultationRoomImage from '../../assets/consultorio2.jpeg';
+import pediatricsRoomImage from '../../assets/pediatria.jpeg';
+import receptionImage from '../../assets/recepcion.jpeg';
 ---
 
 <section id="nosotros" class="py-16 lg:py-20">
@@ -37,28 +41,37 @@ import { Heart, ShieldCheck } from 'lucide-react';
       <div class="flex-1" data-reveal data-delay="180">
         <div class="grid grid-cols-2 gap-3 sm:gap-4">
           <div class="col-span-2 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-            <img
-              src="/images/clinic/about-1.svg"
-              alt="Instalaciones de Servicios Médicos ROMAT"
+            <Image
+              src={consultationRoomImage}
+              alt="Consultorio de Servicios Médicos ROMAT"
+              format="webp"
+              width={1600}
+              height={900}
               class="h-56 w-full object-cover sm:h-64"
               loading="lazy"
             />
           </div>
 
           <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-            <img
-              src="/images/clinic/about-2.svg"
-              alt="Área de atención médica de ROMAT"
+            <Image
+              src={pediatricsRoomImage}
+              alt="Área de atención pediátrica en ROMAT"
+              format="webp"
+              width={1599}
+              height={899}
               class="h-36 w-full object-cover sm:h-40"
               loading="lazy"
             />
           </div>
 
           <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-            <img
-              src="/images/clinic/about-3.svg"
-              alt="Equipo de especialistas de ROMAT"
-              class="h-36 w-full object-cover sm:h-40"
+            <Image
+              src={receptionImage}
+              alt="Recepción principal de Servicios Médicos ROMAT"
+              format="webp"
+              width={900}
+              height={1600}
+              class="h-36 w-full object-cover object-top sm:h-40"
               loading="lazy"
             />
           </div>

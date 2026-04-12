@@ -1,17 +1,17 @@
 export const clinicSchedule = {
-  weekdays: 'Lunes a Viernes: 8:00 AM - 8:00 PM',
-  weekend: 'Sábado y Domingo: 9:00 AM - 2:00 PM',
+  weekdays: 'Lunes a Viernes: 7:00 AM - 5:00 PM',
+  weekend: 'Sábado: 7:00 AM - 12:00 PM',
 };
 
 export const clinicBusinessHours = {
   timezone: 'America/Managua',
   weekday: {
-    openMinutes: 8 * 60,
-    closeMinutes: 20 * 60,
+    openMinutes: 7 * 60,
+    closeMinutes: 17 * 60,
   },
   weekend: {
-    openMinutes: 9 * 60,
-    closeMinutes: 14 * 60,
+    openMinutes: 7 * 60,
+    closeMinutes: 12 * 60,
   },
 };
 

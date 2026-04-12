@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { CalendarClock, CreditCard, HandHeart } from 'lucide-react';
+import consultingRoomImage from '../../assets/consultorio3.jpeg';
+import DoctorImage from '../../assets/doctora.jpg';
 import {
   clinicSchedule,
   homeConsultation,
@@ -47,16 +50,21 @@ const highlightCards = [
         </p>
       </div>
 
-      <div class="grid gap-4 lg:gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,430px)]">
+      <div
+        class="grid gap-4 lg:items-start lg:gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,430px)]"
+      >
         <figure
-          class="h-full overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+          class="h-full self-start lg:self-stretch overflow-hidden rounded-2xl border border-border bg-card shadow-card"
           data-reveal
           data-delay="90"
         >
-          <img
-            src="/images/clinic/clinic-4.svg"
-            alt="Equipo médico de Servicios Médicos ROMAT"
-            class="h-[280px] w-full object-cover object-center sm:h-[340px] lg:h-full"
+          <Image
+            src={DoctorImage}
+            alt="Consultorio de Servicios Médicos ROMAT"
+            format="webp"
+            width={1600}
+            height={900}
+            class="h-[280px] w-full object-cover object-top sm:h-[340px] lg:h-full"
             loading="lazy"
           />
         </figure>

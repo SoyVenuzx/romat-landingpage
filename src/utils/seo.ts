@@ -43,7 +43,7 @@ export const clinicBusinessData: ClinicBusinessData = {
   name: 'Servicios Médicos ROMAT',
   legalName: 'Servicios Médicos ROMAT',
   description:
-    'Clínica médica local en Villa Sol, Managua (Nicaragua), con medicina general, especialidades y laboratorio clínico para toda la familia.',
+    'Clínica médica local en Villa Sol, Managua (Nicaragua), con medicina interna, especialidades y laboratorio clínico para toda la familia.',
   type: 'MedicalClinic',
   phone: '+505 8360 7978',
   whatsappNumber: '+505 8360 7978',

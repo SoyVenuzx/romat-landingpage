@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import {
   ArrowRight,
   CalendarCheck2,
@@ -10,6 +11,7 @@ import {
   MapPin,
   ShieldCheck,
 } from 'lucide-react';
+import clinicFacadeImage from '../../assets/clinica_desde_afuera.jpg';
 import { clinicBusinessData } from '../../utils/seo';
 
 const trustItems = [
@@ -62,18 +64,19 @@ const trustItems = [
         </div>
 
         <figure
-          class="hero-image-shell relative z-10 aspect-[4/3] w-full max-w-[760px] overflow-hidden rounded-[2rem] border border-border/70 shadow-[0_36px_90px_-40px_hsl(var(--primary)/0.55)] sm:aspect-[43/24] lg:max-w-[840px]"
+          class="hero-image-shell relative z-10 aspect-[4/3] w-full max-w-[760px] overflow-hidden rounded-[2rem] border border-border/70 shadow-[0_36px_90px_-40px_hsl(var(--primary)/0.55)] lg:aspect-[7/5]"
         >
-          <img
-            src="/images/clinic/clinic-hero.webp"
-            alt="Doctora de Servicios Médicos ROMAT atendiendo a una paciente en consulta"
-            class="hero-image-media h-full w-full object-cover"
-            width="1376"
-            height="768"
+          <Image
+            src={clinicFacadeImage}
+            alt="Fachada de Servicios Médicos ROMAT en Villa Sol, Managua"
+            format="webp"
+            class="hero-image-media h-full w-full object-cover object-[center_45%]"
+            width={961}
+            height={720}
             loading="eager"
             decoding="async"
             fetchpriority="high"
-            sizes="(max-width: 640px) 95vw, (max-width: 1024px) 88vw, 840px"
+            sizes="(max-width: 640px) 95vw, (max-width: 1024px) 88vw, 760px"
           />
         </figure>
 

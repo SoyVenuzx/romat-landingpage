@@ -1,24 +1,27 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import {
-  BadgeCheck,
-  CalendarCheck2,
-  ChevronDown,
-  Clock3,
-  Dna,
-  Droplets,
-  FlaskConical,
-  type LucideIcon,
-  TestTube2,
-} from 'lucide-react';
-import labLogo from '../../assets/branding/logollab.png';
-import { type LabIcon, labPromotions, labServices } from '../../data/lab';
+	BadgeCheck,
+	CalendarCheck2,
+	ChevronDown,
+	Clock3,
+	Dna,
+	Droplets,
+	FlaskConical,
+	type LucideIcon,
+	TestTube2,
+} from "lucide-react";
+import labLogo from "../../assets/branding/logollab.png";
+import laboratoryImage from
+'../../assets/laboratorio.jpg;
+
+import { type LabIcon, labPromotions, labServices } from "../../data/lab";
 
 const iconMap: Record<LabIcon, LucideIcon> = {
-  Droplets,
-  Dna,
-  TestTube2,
-  FlaskConical,
+	Droplets,
+	Dna,
+	TestTube2,
+	FlaskConical,
 };
 ---
 
@@ -108,10 +111,13 @@ const iconMap: Record<LabIcon, LucideIcon> = {
         data-reveal
         data-delay="120"
       >
-        <img
-          src="/images/clinic/lab-1.svg"
-          alt="Área de laboratorio de Servicios Médicos ROMAT"
-          class="h-48 w-full object-cover sm:h-56"
+        <Image
+          src={laboratoryImage}
+          alt="Profesional de laboratorio realizando análisis clínico en ROMAT"
+          format="webp"
+          width={1080}
+          height={1080}
+          class="h-48 w-full object-cover object-center sm:h-56"
           loading="lazy"
         />
 

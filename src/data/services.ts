@@ -29,12 +29,20 @@ export const serviceCategories: ServiceCategory[] = [
 export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
   Consultas: [
     {
-      id: 'consulta-general',
-      icon: 'Stethoscope',
-      name: 'Medicina General',
-      desc: 'Diagnóstico y tratamiento de enfermedades comunes con atención integral.',
+      id: 'medicina-interna',
+      icon: 'Activity',
+      name: 'Medicina Interna',
+      desc: 'Atención integral del adulto y control de enfermedades crónicas.',
       details:
-        'Evaluación clínica completa, control de padecimientos crónicos y seguimiento personalizado para pacientes de todas las edades.',
+        'Valoración clínica completa, ajuste de tratamientos y seguimiento continuo para hipertensión, diabetes y otras condiciones de larga evolución.',
+    },
+    {
+      id: 'chequeo-ocupacional',
+      icon: 'Stethoscope',
+      name: 'Chequeo ocupacional',
+      desc: 'Evaluaciones médicas para ingreso, control periódico y aptitud laboral.',
+      details:
+        'Realizamos chequeos para empresas y trabajadores con enfoque preventivo, documentación clínica y recomendaciones de salud ocupacional.',
     },
     {
       id: 'cardiologia',
@@ -52,23 +60,15 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
       details:
         'Monitoreo de crecimiento y desarrollo, orientación a padres y consulta integral pediátrica con enfoque preventivo.',
     },
-    {
-      id: 'medicina-interna',
-      icon: 'Activity',
-      name: 'Medicina Interna',
-      desc: 'Atención de patologías complejas del adulto.',
-      details:
-        'Manejo de enfermedades crónicas, coordinación interdisciplinaria y abordaje clínico completo para pacientes adultos.',
-    },
   ],
   Especialidades: [
     {
-      id: 'neurologia',
-      icon: 'Brain',
-      name: 'Neurología',
-      desc: 'Diagnóstico de trastornos del sistema nervioso.',
+      id: 'audiometria',
+      icon: 'Activity',
+      name: 'Audiometría',
+      desc: 'Evaluación de la audición para detección temprana de alteraciones auditivas.',
       details:
-        'Atención especializada para cefalea, vértigo, trastornos del sueño y seguimiento neurológico con criterios clínicos actualizados.',
+        'Pruebas auditivas con interpretación profesional para apoyar diagnóstico, seguimiento y recomendaciones de cuidado de la salud auditiva.',
     },
     {
       id: 'ortopedia',
@@ -79,12 +79,12 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
         'Valoración de dolor articular y lesiones óseas, con enfoque en rehabilitación funcional y recuperación segura.',
     },
     {
-      id: 'oftalmologia',
-      icon: 'Eye',
-      name: 'Oftalmología',
-      desc: 'Cuidado completo de la salud visual.',
+      id: 'psicologia',
+      icon: 'Brain',
+      name: 'Psicología',
+      desc: 'Acompañamiento profesional para bienestar emocional y salud mental.',
       details:
-        'Detección oportuna de alteraciones visuales, revisión oftalmológica y orientación en salud ocular preventiva.',
+        'Atención psicológica para adolescentes y adultos con estrategias terapéuticas orientadas a manejo emocional, adaptación y calidad de vida.',
     },
     {
       id: 'dermatologia',
@@ -133,9 +133,11 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
 
 export const serviceOptions = [
   'Medicina interna',
-  'Medicina general',
+  'Chequeo ocupacional',
   'Cardiología',
   'Pediatría',
+  'Audiometría',
+  'Psicología',
   'Ortopedia',
   'Laboratorio',
   'Otro',
