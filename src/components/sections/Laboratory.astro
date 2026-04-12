@@ -8,11 +8,11 @@ import {
   Dna,
   Droplets,
   FlaskConical,
-  TestTube2,
   type LucideIcon,
+  TestTube2,
 } from 'lucide-react';
 import labLogo from '../../assets/branding/logollab.png';
-import { labPromotions, labServices, type LabIcon } from '../../data/lab';
+import { type LabIcon, labPromotions, labServices } from '../../data/lab';
 
 const iconMap: Record<LabIcon, LucideIcon> = {
   Droplets,
@@ -32,62 +32,82 @@ const iconMap: Record<LabIcon, LucideIcon> = {
       </span>
 
       <h2
-        class="mb-4 flex flex-wrap items-center justify-center gap-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
+        class="mb-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
       >
-        <Image
-          src={labLogo}
-          alt="Logo del laboratorio"
-          format="webp"
-          width={192}
-          height={93}
-          loading="lazy"
-          class="h-9 w-auto rounded-lg bg-white/90 px-2 py-1 shadow-card"
-        />
-        <span>Resultados confiables y rápidos</span>
+        Resultados confiables y rápidos
       </h2>
 
       <p class="mx-auto max-w-2xl text-muted-foreground">
-        Procesos de laboratorio pensados para diagnóstico oportuno,
-        seguimiento médico y prevención continua.
+        Procesos de laboratorio pensados para diagnóstico oportuno, seguimiento
+        médico y prevención continua.
       </p>
+
+      <Image
+        src={labLogo}
+        alt="Logo del laboratorio"
+        format="webp"
+        width={640}
+        height={310}
+        loading="lazy"
+        class="mx-auto mt-4 h-20 w-auto rounded-xl bg-white px-4 py-2 shadow-[0_12px_32px_-16px_hsl(var(--navy)/0.45)] sm:h-24 lg:h-28"
+      />
     </div>
 
     <div class="grid items-stretch gap-6 lg:grid-cols-2">
-      <article class="rounded-2xl border border-border bg-card p-5 shadow-card" data-reveal>
-        <header class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Estudios más solicitados</h3>
-          <span class="inline-flex w-fit whitespace-nowrap rounded-full bg-primary/10 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-primary">
+      <article
+        class="rounded-2xl border border-border bg-card p-5 shadow-card"
+        data-reveal
+      >
+        <header
+          class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">
+            Estudios más solicitados
+          </h3>
+          <span
+            class="inline-flex w-fit whitespace-nowrap rounded-full bg-primary/10 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-primary"
+          >
             Entrega rápida
           </span>
         </header>
 
         <div class="grid gap-3 sm:grid-cols-2">
-          {labServices.map((service, index) => {
-            const Icon = iconMap[service.icon];
+          {
+            labServices.map((service, index) => {
+              const Icon = iconMap[service.icon];
 
-            return (
-              <div
-                class="rounded-xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:shadow-card"
-                data-reveal
-                data-delay={70 + index * 70}
-              >
-                <div class="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/15">
-                  <Icon size={20} className="text-accent" />
+              return (
+                <div
+                  class="rounded-xl border border-border bg-background p-4 transition-all hover:-translate-y-0.5 hover:shadow-card"
+                  data-reveal
+                  data-delay={70 + index * 70}
+                >
+                  <div class="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/15">
+                    <Icon size={20} className="text-accent" />
+                  </div>
+                  <h4 class="text-sm font-bold text-foreground">
+                    {service.name}
+                  </h4>
+                  <p class="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    {service.desc}
+                  </p>
+
+                  <span class="mt-3 inline-flex items-center gap-1 rounded-md bg-muted px-2 py-1 text-[11px] font-semibold text-muted-foreground">
+                    <Clock3 size={12} className="text-primary" />
+                    {service.turnaround}
+                  </span>
                 </div>
-                <h4 class="text-sm font-bold text-foreground">{service.name}</h4>
-                <p class="mt-1 text-xs leading-relaxed text-muted-foreground">{service.desc}</p>
-
-                <span class="mt-3 inline-flex items-center gap-1 rounded-md bg-muted px-2 py-1 text-[11px] font-semibold text-muted-foreground">
-                  <Clock3 size={12} className="text-primary" />
-                  {service.turnaround}
-                </span>
-              </div>
-            );
-          })}
+              );
+            })
+          }
         </div>
       </article>
 
-      <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card" data-reveal data-delay="120">
+      <article
+        class="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+        data-reveal
+        data-delay="120"
+      >
         <img
           src="/images/clinic/lab-1.svg"
           alt="Área de laboratorio de Servicios Médicos ROMAT"
@@ -96,17 +116,24 @@ const iconMap: Record<LabIcon, LucideIcon> = {
         />
 
         <div class="flex flex-1 flex-col p-5">
-          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Atención de laboratorio con seguimiento médico</h3>
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">
+            Atención de laboratorio con seguimiento médico
+          </h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Integramos toma de muestra, análisis y orientación clínica para que el paciente entienda sus resultados con claridad.
+            Integramos toma de muestra, análisis y orientación clínica para que
+            el paciente entienda sus resultados con claridad.
           </p>
 
           <ul class="mt-4 space-y-2">
-            <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
+            <li
+              class="inline-flex items-start gap-2 text-sm text-muted-foreground"
+            >
               <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
               Procesos de laboratorio para control y prevención.
             </li>
-            <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
+            <li
+              class="inline-flex items-start gap-2 text-sm text-muted-foreground"
+            >
               <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
               Reportes claros para apoyar decisiones clínicas y seguimiento de tratamientos.
             </li>
@@ -124,81 +151,95 @@ const iconMap: Record<LabIcon, LucideIcon> = {
     </div>
 
     <section id="lab-promotions" class="mt-8" data-reveal data-delay="160">
-      <div class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h3 class="text-xl font-extrabold text-foreground">Promociones activas</h3>
-        <span class="inline-flex w-fit items-center rounded-full bg-accent/15 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-accent">
+      <div
+        class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <h3 class="text-xl font-extrabold text-foreground">
+          Promociones activas
+        </h3>
+        <span
+          class="inline-flex w-fit items-center rounded-full bg-accent/15 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-accent"
+        >
           Paquetes vigentes
         </span>
       </div>
 
       <div class="grid items-start gap-4 md:auto-rows-min md:grid-cols-2">
-        {labPromotions.map((promo, index) => (
-          <article
-            data-promo-card
-            class="group h-fit self-start rounded-2xl border border-border bg-card p-4 shadow-card"
-            data-reveal
-            data-delay={200 + index * 70}
-          >
-            <button
-              type="button"
-              data-promo-trigger
-              aria-expanded="false"
-              aria-controls={`promo-panel-${promo.id}`}
-              class="flex w-full cursor-pointer items-start justify-between gap-3 text-left md:cursor-default"
+        {
+          labPromotions.map((promo, index) => (
+            <article
+              data-promo-card
+              class="group h-fit self-start rounded-2xl border border-border bg-card p-4 shadow-card"
+              data-reveal
+              data-delay={200 + index * 70}
             >
-              <div>
-                <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">
-                  <BadgeCheck size={12} />
-                  {promo.badge}
+              <button
+                type="button"
+                data-promo-trigger
+                aria-expanded="false"
+                aria-controls={`promo-panel-${promo.id}`}
+                class="flex w-full cursor-pointer items-start justify-between gap-3 text-left md:cursor-default"
+              >
+                <div>
+                  <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">
+                    <BadgeCheck size={12} />
+                    {promo.badge}
+                  </span>
+                  <h4 class="mt-2 text-base font-bold text-foreground">
+                    {promo.title}
+                  </h4>
+                  <p class="mt-1 text-sm text-muted-foreground">
+                    {promo.summary}
+                  </p>
+                </div>
+
+                <span class="mt-0.5 inline-flex shrink-0 items-center gap-1 text-xs font-bold text-primary md:hidden">
+                  Ver detalles
+                  <ChevronDown
+                    size={14}
+                    data-promo-chevron
+                    className="transition-transform duration-300"
+                  />
                 </span>
-                <h4 class="mt-2 text-base font-bold text-foreground">{promo.title}</h4>
-                <p class="mt-1 text-sm text-muted-foreground">{promo.summary}</p>
+
+                <span class="mt-0.5 hidden shrink-0 items-center gap-1 text-xs font-bold text-primary md:inline-flex">
+                  Detalles incluidos
+                </span>
+              </button>
+
+              <div
+                id={`promo-panel-${promo.id}`}
+                data-promo-panel
+                aria-hidden="true"
+                class="promo-details-panel mt-3"
+                style="height:0px"
+              >
+                <div class="promo-details-inner min-h-0 overflow-hidden border-t border-border/80 pt-3">
+                  <ul class="space-y-1.5 text-sm text-muted-foreground">
+                    {promo.includes.map((item) => (
+                      <li class="flex items-start gap-3 leading-relaxed">
+                        <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p class="mt-3 text-xs font-semibold text-primary">
+                    {promo.validity}
+                  </p>
+
+                  <a
+                    href="#contacto"
+                    class="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
+                  >
+                    <CalendarCheck2 size={16} />
+                    Agendar con esta promoción
+                  </a>
+                </div>
               </div>
-
-              <span class="mt-0.5 inline-flex shrink-0 items-center gap-1 text-xs font-bold text-primary md:hidden">
-                Ver detalles
-                <ChevronDown
-                  size={14}
-                  data-promo-chevron
-                  className="transition-transform duration-300"
-                />
-              </span>
-
-              <span class="mt-0.5 hidden shrink-0 items-center gap-1 text-xs font-bold text-primary md:inline-flex">
-                Detalles incluidos
-              </span>
-            </button>
-
-            <div
-              id={`promo-panel-${promo.id}`}
-              data-promo-panel
-              aria-hidden="true"
-              class="promo-details-panel mt-3"
-              style="height:0px"
-            >
-              <div class="promo-details-inner min-h-0 overflow-hidden border-t border-border/80 pt-3">
-                <ul class="space-y-1.5 text-sm text-muted-foreground">
-                  {promo.includes.map((item) => (
-                    <li class="flex items-start gap-3 leading-relaxed">
-                      <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <p class="mt-3 text-xs font-semibold text-primary">{promo.validity}</p>
-
-                <a
-                  href="#contacto"
-                  class="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
-                >
-                  <CalendarCheck2 size={16} />
-                  Agendar con esta promoción
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))
+        }
       </div>
     </section>
   </div>
@@ -315,7 +356,9 @@ const iconMap: Record<LabIcon, LucideIcon> = {
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupLabPromotions, { once: true });
+    document.addEventListener('DOMContentLoaded', setupLabPromotions, {
+      once: true,
+    });
   } else {
     setupLabPromotions();
   }

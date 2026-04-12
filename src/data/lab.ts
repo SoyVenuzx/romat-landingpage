@@ -62,17 +62,17 @@ export const labPromotions: LabPromotion[] = [
     ],
     validity: 'Vigencia sujeta a disponibilidad mensual.',
   },
-  {
-    id: 'promo-cardiometabolico',
-    title: 'Perfil Cardio-Metabólico',
-    badge: 'Nuevo paquete',
-    summary: 'Apoyo para control de riesgo cardiovascular y metabólico.',
-    includes: [
-      'Perfil de lípidos',
-      'Glucosa en ayuno',
-      'Hemoglobina glucosilada',
-      'Consulta de seguimiento',
-    ],
-    validity: 'Vigencia sujeta a disponibilidad mensual.',
-  },
+  // {
+  //   id: 'promo-cardiometabolico',
+  //   title: 'Perfil Cardio-Metabólico',
+  //   badge: 'Nuevo paquete',
+  //   summary: 'Apoyo para control de riesgo cardiovascular y metabólico.',
+  //   includes: [
+  //     'Perfil de lípidos',
+  //     'Glucosa en ayuno',
+  //     'Hemoglobina glucosilada',
+  //     'Consulta de seguimiento',
+  //   ],
+  //   validity: 'Vigencia sujeta a disponibilidad mensual.',
+  // },
 ];
