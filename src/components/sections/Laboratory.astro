@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import {
   BadgeCheck,
   CalendarCheck2,
@@ -10,7 +11,7 @@ import {
   TestTube2,
   type LucideIcon,
 } from 'lucide-react';
-import SectionHeading from '../ui/SectionHeading.astro';
+import labLogo from '../../assets/branding/logollab.png';
 import { labPromotions, labServices, type LabIcon } from '../../data/lab';
 
 const iconMap: Record<LabIcon, LucideIcon> = {
@@ -23,21 +24,40 @@ const iconMap: Record<LabIcon, LucideIcon> = {
 
 <section id="laboratorio" class="bg-muted/40 py-16 lg:py-20">
   <div class="container mx-auto px-4 lg:px-8">
-    <div class="mb-10 lg:mb-12">
-      <SectionHeading
-        badge="Laboratorio clinico"
-        badgeColor="accent"
-        title="Resultados confiables y rapidos"
-        description="Procesos de laboratorio pensados para diagnostico oportuno, seguimiento medico y prevencion continua."
-      />
+    <div class="mb-10 text-center lg:mb-12" data-reveal>
+      <span
+        class="mb-3 inline-block rounded-full bg-accent/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent"
+      >
+        Laboratorio clínico
+      </span>
+
+      <h2
+        class="mb-4 flex flex-wrap items-center justify-center gap-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
+      >
+        <Image
+          src={labLogo}
+          alt="Logo del laboratorio"
+          format="webp"
+          width={192}
+          height={93}
+          loading="lazy"
+          class="h-9 w-auto rounded-lg bg-white/90 px-2 py-1 shadow-card"
+        />
+        <span>Resultados confiables y rápidos</span>
+      </h2>
+
+      <p class="mx-auto max-w-2xl text-muted-foreground">
+        Procesos de laboratorio pensados para diagnóstico oportuno,
+        seguimiento médico y prevención continua.
+      </p>
     </div>
 
     <div class="grid items-stretch gap-6 lg:grid-cols-2">
       <article class="rounded-2xl border border-border bg-card p-5 shadow-card" data-reveal>
         <header class="mb-4 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Estudios mas solicitados</h3>
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Estudios más solicitados</h3>
           <span class="inline-flex w-fit whitespace-nowrap rounded-full bg-primary/10 px-2.5 py-1 text-center text-[11px] font-bold uppercase tracking-wider text-primary">
-            Entrega rapida
+            Entrega rápida
           </span>
         </header>
 
@@ -52,13 +72,13 @@ const iconMap: Record<LabIcon, LucideIcon> = {
                 data-delay={70 + index * 70}
               >
                 <div class="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/15">
-                  <Icon size={20} class="text-accent" />
+                  <Icon size={20} className="text-accent" />
                 </div>
                 <h4 class="text-sm font-bold text-foreground">{service.name}</h4>
                 <p class="mt-1 text-xs leading-relaxed text-muted-foreground">{service.desc}</p>
 
                 <span class="mt-3 inline-flex items-center gap-1 rounded-md bg-muted px-2 py-1 text-[11px] font-semibold text-muted-foreground">
-                  <Clock3 size={12} class="text-primary" />
+                  <Clock3 size={12} className="text-primary" />
                   {service.turnaround}
                 </span>
               </div>
@@ -70,25 +90,25 @@ const iconMap: Record<LabIcon, LucideIcon> = {
       <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card" data-reveal data-delay="120">
         <img
           src="/images/clinic/lab-1.svg"
-          alt="Area de laboratorio de Servicios Medicos ROMAT"
+          alt="Área de laboratorio de Servicios Médicos ROMAT"
           class="h-48 w-full object-cover sm:h-56"
           loading="lazy"
         />
 
         <div class="flex flex-1 flex-col p-5">
-          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Atencion de laboratorio con seguimiento medico</h3>
+          <h3 class="text-lg font-extrabold text-foreground sm:text-xl">Atención de laboratorio con seguimiento médico</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
-            Integramos toma de muestra, analisis y orientacion clinica para que el paciente entienda sus resultados con claridad.
+            Integramos toma de muestra, análisis y orientación clínica para que el paciente entienda sus resultados con claridad.
           </p>
 
           <ul class="mt-4 space-y-2">
             <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
               <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Procesos de laboratorio para control y prevencion.
+              Procesos de laboratorio para control y prevención.
             </li>
             <li class="inline-flex items-start gap-2 text-sm text-muted-foreground">
               <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent"></span>
-              Reportes claros para apoyar decisiones clinicas y seguimiento de tratamientos.
+              Reportes claros para apoyar decisiones clínicas y seguimiento de tratamientos.
             </li>
           </ul>
 
@@ -140,7 +160,7 @@ const iconMap: Record<LabIcon, LucideIcon> = {
                 <ChevronDown
                   size={14}
                   data-promo-chevron
-                  class="transition-transform duration-300"
+                  className="transition-transform duration-300"
                 />
               </span>
 
@@ -173,7 +193,7 @@ const iconMap: Record<LabIcon, LucideIcon> = {
                   class="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-bold text-accent-foreground shadow-lg shadow-accent/20 transition-all hover:-translate-y-0.5 hover:bg-accent/90"
                 >
                   <CalendarCheck2 size={16} />
-                  Agendar con esta promocion
+                  Agendar con esta promoción
                 </a>
               </div>
             </div>

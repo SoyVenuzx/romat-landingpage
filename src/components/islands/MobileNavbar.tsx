@@ -91,7 +91,7 @@ export default function MobileNavbar({ navLinks }: MobileNavbarProps) {
         type="button"
         onClick={toggleMenu}
         className="relative z-[95] flex h-10 w-10 items-center justify-center rounded-xl text-foreground transition-colors hover:bg-muted lg:hidden"
-        aria-label={isOpen ? 'Cerrar menu' : 'Abrir menu'}
+        aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
         aria-expanded={isOpen}
         aria-controls="mobile-nav-panel"
       >
@@ -108,7 +108,7 @@ export default function MobileNavbar({ navLinks }: MobileNavbarProps) {
             className={`absolute inset-0 bg-navy/22 backdrop-blur-[2px] transition-opacity duration-200 ${
               isOpen ? 'opacity-100' : 'opacity-0'
             }`}
-            aria-label="Cerrar menu"
+            aria-label="Cerrar menú"
             onClick={closeMenu}
           />
 
@@ -119,7 +119,7 @@ export default function MobileNavbar({ navLinks }: MobileNavbarProps) {
                 : '-translate-y-3 opacity-0'
             }`}
           >
-            <ul className="flex flex-col gap-1" aria-label="Menu principal">
+            <ul className="flex flex-col gap-1" aria-label="Menú principal">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a

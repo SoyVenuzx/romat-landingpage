@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { Clock3 } from 'lucide-react';
 import { clinicBusinessHours } from '../../data/clinic-info';
+import clinicLogo from '../../assets/branding/logoclinica.png';
 import MobileNavbar from '../islands/MobileNavbar';
 
 const navLinks = [
@@ -19,12 +21,16 @@ const navLinks = [
   <nav
     class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8"
   >
-    <a href="#inicio" class="flex items-center gap-2" aria-label="Ir al inicio">
-      <div
-        class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary"
-      >
-        <span class="text-lg font-extrabold text-primary-foreground">R</span>
-      </div>
+    <a href="#inicio" class="flex items-center gap-3" aria-label="Ir al inicio">
+      <Image
+        src={clinicLogo}
+        alt="Logo Servicios Médicos ROMAT"
+        format="webp"
+        width={56}
+        height={56}
+        loading="eager"
+        class="h-11 w-11 rounded-xl bg-white/95 p-1 shadow-sm"
+      />
       <div class="flex flex-col">
         <span class="text-lg font-extrabold tracking-tight text-foreground"
           >ROMAT</span
@@ -32,7 +38,7 @@ const navLinks = [
         <span
           class="text-[10px] font-medium uppercase tracking-widest text-muted-foreground"
         >
-          Servicios Medicos
+          Servicios Médicos
         </span>
       </div>
     </a>
@@ -83,7 +89,7 @@ const navLinks = [
             id="clinic-open-meta"
             class="block text-[10px] text-muted-foreground"
           >
-            Hora Nicaragua
+            Hora de Nicaragua
           </span>
         </span>
       </div>

@@ -112,7 +112,7 @@ export default function ServicesInteractive({
                 aria-expanded={isExpanded}
                 aria-label={`Ver detalles de ${service.name}`}
               >
-                {isExpanded ? 'Ver menos' : 'Ver mas'}
+                {isExpanded ? 'Ver menos' : 'Ver más'}
                 <ArrowRight size={14} className={isExpanded ? 'rotate-90 transition-transform' : 'transition-transform'} />
               </button>
             </article>

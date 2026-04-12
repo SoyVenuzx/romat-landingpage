@@ -9,7 +9,7 @@ import {
 const highlightCards = [
   {
     icon: CalendarClock,
-    title: 'Horarios de atencion',
+    title: 'Horarios de atención',
     lines: [clinicSchedule.weekdays, clinicSchedule.weekend],
   },
   {
@@ -19,7 +19,7 @@ const highlightCards = [
   },
   {
     icon: CreditCard,
-    title: 'Metodos de pago',
+    title: 'Métodos de pago',
     lines: paymentMethods,
   },
 ];
@@ -32,49 +32,62 @@ const highlightCards = [
         <span
           class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
         >
-          Por que elegirnos
+          Por qué elegirnos
         </span>
-        <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-          Informacion clave para tu atencion
+        <h2
+          class="mb-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
+        >
+          Información clave para tu atención
         </h2>
-        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Organizamos lo esencial para que tengas claridad al momento de agendar tu consulta o estudio.
+        <p
+          class="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+        >
+          Organizamos lo esencial para que tengas claridad al momento de agendar
+          tu consulta o estudio.
         </p>
       </div>
 
       <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)]">
-        <figure class="overflow-hidden rounded-2xl border border-border bg-card shadow-card" data-reveal data-delay="90">
+        <figure
+          class="overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+          data-reveal
+          data-delay="90"
+        >
           <img
             src="/images/clinic/clinic-4.svg"
-            alt="Equipo medico de Servicios Medicos ROMAT"
+            alt="Equipo médico de Servicios Médicos ROMAT"
             class="h-full min-h-[220px] w-full object-cover"
             loading="lazy"
           />
         </figure>
 
         <div class="grid gap-4">
-          {highlightCards.map((card, index) => (
-            <article
-              class="rounded-2xl border border-border bg-card p-4 shadow-card"
-              data-reveal
-              data-delay={130 + index * 85}
-            >
-              <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15">
-                <card.icon size={22} className="text-accent" />
-              </div>
+          {
+            highlightCards.map((card, index) => (
+              <article
+                class="rounded-2xl border border-border bg-card p-4 shadow-card"
+                data-reveal
+                data-delay={130 + index * 85}
+              >
+                <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15">
+                  <card.icon size={22} className="text-accent" />
+                </div>
 
-              <h3 class="mb-2 text-base font-bold text-foreground">{card.title}</h3>
+                <h3 class="mb-2 text-base font-bold text-foreground">
+                  {card.title}
+                </h3>
 
-              <ul class="space-y-2.5">
-                {card.lines.map((line) => (
-                  <li class="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                    <span class="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent"></span>
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+                <ul class="space-y-2.5">
+                  {card.lines.map((line) => (
+                    <li class="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span class="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
         </div>
       </div>
     </div>

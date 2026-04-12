@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { Facebook, Instagram, Mail, MessageCircle } from 'lucide-react';
+import clinicLogo from '../../assets/branding/logoclinica.png';
 import { clinicBusinessData } from '../../utils/seo';
 
 const quickLinks = [
@@ -10,7 +12,13 @@ const quickLinks = [
   { label: 'Contacto', href: '#contacto' },
 ];
 
-const services = ['Medicina General', 'Cardiologia', 'Pediatria', 'Laboratorio', 'Ortopedia'];
+const services = [
+  'Medicina General',
+  'Cardiología',
+  'Pediatría',
+  'Laboratorio',
+  'Ortopedia',
+];
 const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, '')}`;
 ---
 
@@ -18,43 +26,69 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
   <div class="container mx-auto px-4 py-16 lg:px-8">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div>
-        <div class="mb-4 flex items-center gap-2">
-          <div class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <span class="text-base font-extrabold text-primary-foreground">R</span>
-          </div>
+        <div class="mb-4 flex items-center gap-3">
+          <Image
+            src={clinicLogo}
+            alt="Logo principal de Servicios Médicos ROMAT"
+            format="webp"
+            width={64}
+            height={64}
+            loading="lazy"
+            class="h-12 w-12 rounded-xl bg-white/95 p-1"
+          />
           <span class="text-lg font-extrabold">ROMAT</span>
         </div>
         <p class="text-sm leading-relaxed text-navy-foreground/70">
-          Servicios Medicos ROMAT - Tu clinica de confianza para el cuidado integral de la salud.
+          Servicios Médicos ROMAT - Tu clínica de confianza para el cuidado
+          integral de la salud.
         </p>
       </div>
 
       <div>
-        <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50">Enlaces</h4>
+        <h4
+          class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50"
+        >
+          Enlaces
+        </h4>
         <ul class="space-y-2 text-sm">
-          {quickLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-navy-foreground/70 transition-colors hover:text-accent">
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {
+            quickLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-navy-foreground/70 transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <div>
-        <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50">Servicios</h4>
+        <h4
+          class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50"
+        >
+          Servicios
+        </h4>
         <ul class="space-y-2 text-sm">
-          {services.map((service) => (
-            <li>
-              <span class="text-navy-foreground/70">{service}</span>
-            </li>
-          ))}
+          {
+            services.map((service) => (
+              <li>
+                <span class="text-navy-foreground/70">{service}</span>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <div>
-        <h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50">Contacto</h4>
+        <h4
+          class="mb-4 text-sm font-bold uppercase tracking-wider text-navy-foreground/50"
+        >
+          Contacto
+        </h4>
         <ul class="space-y-3 text-sm">
           <li>
             <a
@@ -95,8 +129,11 @@ const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(
       </div>
     </div>
 
-    <div class="mt-12 border-t border-navy-foreground/10 pt-6 text-center text-xs text-navy-foreground/40">
-      &copy; {new Date().getFullYear()} Servicios Medicos ROMAT. Todos los derechos reservados.
+    <div
+      class="mt-12 border-t border-navy-foreground/10 pt-6 text-center text-xs text-navy-foreground/40"
+    >
+      &copy; {new Date().getFullYear()} Servicios Médicos ROMAT. Todos los derechos
+      reservados.
     </div>
   </div>
 </footer>

@@ -32,83 +32,83 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
       id: 'consulta-general',
       icon: 'Stethoscope',
       name: 'Medicina General',
-      desc: 'Diagnostico y tratamiento de enfermedades comunes con atencion integral.',
+      desc: 'Diagnóstico y tratamiento de enfermedades comunes con atención integral.',
       details:
-        'Evaluacion clinica completa, control de padecimientos cronicos y seguimiento personalizado para pacientes de todas las edades.',
+        'Evaluación clínica completa, control de padecimientos crónicos y seguimiento personalizado para pacientes de todas las edades.',
     },
     {
       id: 'cardiologia',
       icon: 'HeartPulse',
-      name: 'Cardiologia',
-      desc: 'Evaluacion y seguimiento de la salud cardiovascular.',
+      name: 'Cardiología',
+      desc: 'Evaluación y seguimiento de la salud cardiovascular.',
       details:
-        'Valoracion cardiovascular inicial, interpretacion de estudios y plan preventivo adaptado al perfil de riesgo del paciente.',
+        'Valoración cardiovascular inicial, interpretación de estudios y plan preventivo adaptado al perfil de riesgo del paciente.',
     },
     {
       id: 'pediatria',
       icon: 'Baby',
-      name: 'Pediatria',
-      desc: 'Cuidado especializado para la salud de los mas pequenos.',
+      name: 'Pediatría',
+      desc: 'Cuidado especializado para la salud de los más pequeños.',
       details:
-        'Monitoreo de crecimiento y desarrollo, orientacion a padres y consulta integral pediatrica con enfoque preventivo.',
+        'Monitoreo de crecimiento y desarrollo, orientación a padres y consulta integral pediátrica con enfoque preventivo.',
     },
     {
       id: 'medicina-interna',
       icon: 'Activity',
       name: 'Medicina Interna',
-      desc: 'Atencion de patologias complejas del adulto.',
+      desc: 'Atención de patologías complejas del adulto.',
       details:
-        'Manejo de enfermedades cronicas, coordinacion interdisciplinaria y abordaje clinico completo para pacientes adultos.',
+        'Manejo de enfermedades crónicas, coordinación interdisciplinaria y abordaje clínico completo para pacientes adultos.',
     },
   ],
   Especialidades: [
     {
       id: 'neurologia',
       icon: 'Brain',
-      name: 'Neurologia',
-      desc: 'Diagnostico de trastornos del sistema nervioso.',
+      name: 'Neurología',
+      desc: 'Diagnóstico de trastornos del sistema nervioso.',
       details:
-        'Atencion especializada para cefalea, vertigo, trastornos del sueno y seguimiento neurologico con criterios clinicos actualizados.',
+        'Atención especializada para cefalea, vértigo, trastornos del sueño y seguimiento neurológico con criterios clínicos actualizados.',
     },
     {
       id: 'ortopedia',
       icon: 'Bone',
       name: 'Ortopedia',
-      desc: 'Tratamiento de lesiones musculoesqueleticas.',
+      desc: 'Tratamiento de lesiones musculoesqueléticas.',
       details:
-        'Valoracion de dolor articular y lesiones oseas, con enfoque en rehabilitacion funcional y recuperacion segura.',
+        'Valoración de dolor articular y lesiones óseas, con enfoque en rehabilitación funcional y recuperación segura.',
     },
     {
       id: 'oftalmologia',
       icon: 'Eye',
-      name: 'Oftalmologia',
+      name: 'Oftalmología',
       desc: 'Cuidado completo de la salud visual.',
       details:
-        'Deteccion oportuna de alteraciones visuales, revision oftalmologica y orientacion en salud ocular preventiva.',
+        'Detección oportuna de alteraciones visuales, revisión oftalmológica y orientación en salud ocular preventiva.',
     },
     {
       id: 'dermatologia',
       icon: 'Pill',
-      name: 'Dermatologia',
-      desc: 'Tratamientos para piel, cabello y unas.',
+      name: 'Dermatología',
+      desc: 'Tratamientos para piel, cabello y uñas.',
       details:
-        'Atencion dermatologica para diagnostico clinico, control de brotes y tratamiento de condiciones cutaneas frecuentes.',
+        'Atención dermatológica para diagnóstico clínico, control de brotes y tratamiento de condiciones cutáneas frecuentes.',
     },
   ],
   Procedimientos: [
     {
       id: 'vacunacion',
       icon: 'Syringe',
-      name: 'Vacunacion',
+      name: 'Vacunación',
       desc: 'Esquemas completos para todas las edades.',
       details:
-        'Aplicacion segura de vacunas con seguimiento del esquema y recomendaciones para reforzar prevencion en familia.',
+        'Aplicación segura de vacunas con seguimiento del esquema y recomendaciones para reforzar prevención en familia.',
     },
     {
       id: 'estudios-clinicos',
       icon: 'Microscope',
-      name: 'Estudios Clinicos',
-      desc: 'Analisis de laboratorio con resultados rapidos.',
+      name: 'Estudios Clínicos',
+      desc: 'Análisis de laboratorio con resultados rápidos.',
       details:
         'Paneles de laboratorio para chequeos preventivos y control de enfermedades, con tiempos de entrega oportunos.',
     },
@@ -116,17 +116,17 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
       id: 'electrocardiograma',
       icon: 'Activity',
       name: 'Electrocardiograma',
-      desc: 'Monitoreo de actividad cardiaca preciso.',
+      desc: 'Monitoreo de actividad cardíaca preciso.',
       details:
-        'Registro y lectura clinica para apoyar diagnostico cardiovascular y seguimiento de sintomas cardiacos.',
+        'Registro y lectura clínica para apoyar diagnóstico cardiovascular y seguimiento de síntomas cardíacos.',
     },
     {
       id: 'ultrasonido',
       icon: 'HeartPulse',
       name: 'Ultrasonido',
-      desc: 'Imagenes diagnosticas de alta calidad.',
+      desc: 'Imágenes diagnósticas de alta calidad.',
       details:
-        'Estudios por imagen no invasivos para evaluacion de tejidos y organos, con interpretacion profesional.',
+        'Estudios por imagen no invasivos para evaluación de tejidos y órganos, con interpretación profesional.',
     },
   ],
 };
@@ -134,8 +134,8 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
 export const serviceOptions = [
   'Medicina interna',
   'Medicina general',
-  'Cardiologia',
-  'Pediatria',
+  'Cardiología',
+  'Pediatría',
   'Ortopedia',
   'Laboratorio',
   'Otro',
