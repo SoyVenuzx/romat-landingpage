@@ -25,10 +25,10 @@ const highlightCards = [
 ];
 ---
 
-<section class="bg-muted/45 py-14 lg:py-16">
+<section class="bg-muted/45 py-12 lg:py-14">
   <div class="container mx-auto px-4 lg:px-8">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-10 text-center" data-reveal>
+    <div class="mx-auto max-w-5xl">
+      <div class="mb-8 text-center lg:mb-9" data-reveal>
         <span
           class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
         >
@@ -40,47 +40,47 @@ const highlightCards = [
           Información clave para tu atención
         </h2>
         <p
-          class="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base"
+          class="mx-auto max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base"
         >
           Organizamos lo esencial para que tengas claridad al momento de agendar
           tu consulta o estudio.
         </p>
       </div>
 
-      <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)]">
+      <div class="grid gap-4 lg:gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,430px)]">
         <figure
-          class="overflow-hidden rounded-2xl border border-border bg-card shadow-card"
+          class="h-full overflow-hidden rounded-2xl border border-border bg-card shadow-card"
           data-reveal
           data-delay="90"
         >
           <img
             src="/images/clinic/clinic-4.svg"
             alt="Equipo médico de Servicios Médicos ROMAT"
-            class="h-full min-h-[220px] w-full object-cover"
+            class="h-[280px] w-full object-cover object-center sm:h-[340px] lg:h-full"
             loading="lazy"
           />
         </figure>
 
-        <div class="grid gap-4">
+        <div class="grid gap-3">
           {
             highlightCards.map((card, index) => (
               <article
-                class="rounded-2xl border border-border bg-card p-4 shadow-card"
+                class="rounded-2xl border border-border bg-card p-3.5 shadow-card"
                 data-reveal
                 data-delay={130 + index * 85}
               >
-                <div class="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/15">
-                  <card.icon size={22} className="text-accent" />
+                <div class="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15">
+                  <card.icon size={20} className="text-accent" />
                 </div>
 
                 <h3 class="mb-2 text-base font-bold text-foreground">
                   {card.title}
                 </h3>
 
-                <ul class="space-y-2.5">
+                <ul class="space-y-2">
                   {card.lines.map((line) => (
-                    <li class="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                      <span class="mt-[0.55rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <li class="flex items-start gap-2.5 text-[13px] leading-[1.5] text-muted-foreground sm:text-sm">
+                      <span class="mt-[0.5rem] h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       {line}
                     </li>
                   ))}
