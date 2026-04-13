@@ -6,12 +6,12 @@ interface Props {
   badgeColor?: 'primary' | 'accent';
 }
 
-const {
-  badge,
-  title,
-  description,
-  badgeColor = 'primary',
-} = Astro.props;
+const { badge, title, description, badgeColor = 'primary' } = Astro.props;
+
+// const badgeClass =
+//   badgeColor === 'accent'
+//     ? 'border border-accent/30 bg-gradient-to-r from-accent/18 via-secondary/16 to-accent/10 text-accent shadow-[0_12px_28px_-18px_hsl(var(--accent)/0.6)]'
+//     : 'border border-primary/30 bg-gradient-to-r from-primary/18 via-secondary/16 to-primary/8 text-primary shadow-[0_12px_28px_-18px_hsl(var(--primary)/0.6)]';
 
 const badgeClass =
   badgeColor === 'accent'
@@ -20,9 +20,19 @@ const badgeClass =
 ---
 
 <div class="text-center" data-reveal>
-  <span class={`mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider ${badgeClass}`}>
+  <span
+    class={`mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider ${badgeClass}`}
+  >
     {badge}
   </span>
-  <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">{title}</h2>
-  {description && <p class="mx-auto max-w-2xl text-muted-foreground">{description}</p>}
+  <h2
+    class="mb-4 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl"
+  >
+    {title}
+  </h2>
+  {
+    description && (
+      <p class="mx-auto max-w-2xl text-muted-foreground">{description}</p>
+    )
+  }
 </div>

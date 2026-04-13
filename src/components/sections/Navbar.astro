@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import { Clock3 } from 'lucide-react';
-import { clinicBusinessHours } from '../../data/clinic-info';
 import clinicLogo from '../../assets/branding/logoclinica.png';
+import { clinicBusinessHours } from '../../data/clinic-info';
 import MobileNavbar from '../islands/MobileNavbar';
 
 const navLinks = [
@@ -16,7 +16,7 @@ const navLinks = [
 
 <header
   id="site-header"
-  class="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-transparent transition-all duration-300"
+  class="fixed left-0 right-0 top-0 z-50 bg-transparent transition-all duration-300"
 >
   <nav
     class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8"
@@ -32,11 +32,11 @@ const navLinks = [
         class="h-11 w-11 rounded-xl bg-white/95 p-1 shadow-sm"
       />
       <div class="flex flex-col">
-        <span class="text-lg font-extrabold tracking-tight text-foreground"
+        <span class="text-lg font-extrabold tracking-tight text-foreground/80"
           >ROMAT</span
         >
         <span
-          class="text-[10px] font-medium uppercase tracking-widest text-muted-foreground"
+          class="text-[10px] font-medium uppercase tracking-widest text-foreground/60"
         >
           Servicios Médicos
         </span>
@@ -49,7 +49,7 @@ const navLinks = [
           <li>
             <a
               href={link.href}
-              class="text-sm font-semibold text-muted-foreground transition-colors hover:text-primary"
+              class="text-sm font-semibold text-foreground/72 transition-colors hover:text-primary"
             >
               {link.label}
             </a>
@@ -61,7 +61,7 @@ const navLinks = [
     <div class="hidden items-center lg:flex">
       <div
         id="clinic-open-status"
-        class="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/92 px-3 py-1.5 shadow-card backdrop-blur"
+        class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-1.5 shadow-[0_12px_26px_-18px_hsl(var(--navy)/0.35)]"
         data-timezone={clinicBusinessHours.timezone}
         data-weekday-open={clinicBusinessHours.weekday.openMinutes}
         data-weekday-close={clinicBusinessHours.weekday.closeMinutes}
@@ -87,7 +87,7 @@ const navLinks = [
           </span>
           <span
             id="clinic-open-meta"
-            class="block text-[10px] text-muted-foreground"
+            class="block text-[10px] text-foreground/70"
           >
             Hora de Nicaragua
           </span>
@@ -110,21 +110,11 @@ const navLinks = [
 
     const onScroll = () => {
       if (window.scrollY > 40) {
-        header.classList.add(
-          'bg-card/95',
-          'backdrop-blur-md',
-          'shadow-card',
-          'border-border',
-        );
-        header.classList.remove('bg-transparent', 'border-transparent');
+        header.classList.add('bg-card/95', 'backdrop-blur-md');
+        header.classList.remove('bg-transparent');
       } else {
-        header.classList.remove(
-          'bg-card/95',
-          'backdrop-blur-md',
-          'shadow-card',
-          'border-border',
-        );
-        header.classList.add('bg-transparent', 'border-transparent');
+        header.classList.remove('bg-card/95', 'backdrop-blur-md');
+        header.classList.add('bg-transparent');
       }
     };
 

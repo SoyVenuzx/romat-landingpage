@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 210 33% 99%;
-    --foreground: 222 47% 11%;
+    --background: 196 78% 98%;
+    --foreground: 218 44% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 218 44% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 218 44% 12%;
 
-    --primary: 224 82% 47%;
+    --primary: 192 72% 47%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 94% 68%;
+    --secondary: 202 95% 63%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 196 58% 94%;
+    --muted-foreground: 212 20% 39%;
 
     --accent: 158 84% 39%;
     --accent-foreground: 0 0% 100%;
@@ -28,9 +28,9 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 224 82% 47%;
+    --border: 198 45% 86%;
+    --input: 198 45% 86%;
+    --ring: 192 72% 47%;
 
     --radius: 1rem;
 
@@ -43,32 +43,32 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --navy: 220 60% 12%;
-    --navy-foreground: 210 40% 96%;
+    --navy: 212 54% 14%;
+    --navy-foreground: 196 74% 96%;
   }
 
   .dark {
-    --background: 222 47% 6%;
+    --background: 212 46% 8%;
     --foreground: 210 40% 98%;
-    --card: 222 47% 8%;
+    --card: 212 44% 10%;
     --card-foreground: 210 40% 98%;
-    --popover: 222 47% 8%;
+    --popover: 212 44% 10%;
     --popover-foreground: 210 40% 98%;
-    --primary: 224 82% 55%;
+    --primary: 192 76% 56%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 213 94% 68%;
+    --secondary: 202 88% 65%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 206 34% 19%;
+    --muted-foreground: 203 22% 72%;
     --accent: 158 84% 44%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 224 82% 55%;
-    --navy: 220 60% 8%;
-    --navy-foreground: 210 40% 96%;
+    --border: 206 30% 24%;
+    --input: 206 30% 24%;
+    --ring: 192 76% 56%;
+    --navy: 211 57% 8%;
+    --navy-foreground: 195 68% 95%;
   }
 }
 
@@ -89,6 +89,11 @@
       radial-gradient(circle at 12% -10%, hsl(var(--primary) / 0.12), transparent 30%),
       radial-gradient(circle at 88% 2%, hsl(var(--accent) / 0.1), transparent 26%),
       linear-gradient(180deg, hsl(var(--background)), hsl(210 35% 98%));
+    /* background-image:
+      radial-gradient(circle at 12% -10%, hsl(var(--primary) / 0.22), transparent 34%),
+      radial-gradient(circle at 84% 2%, hsl(var(--secondary) / 0.18), transparent 32%),
+      radial-gradient(circle at 56% 92%, hsl(var(--accent) / 0.12), transparent 30%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(196 84% 97%)); */
   }
 
 }
@@ -109,6 +114,10 @@
       radial-gradient(circle at 14% 18%, hsl(var(--secondary) / 0.12), transparent 40%),
       radial-gradient(circle at 86% 12%, hsl(var(--accent) / 0.11), transparent 36%),
       linear-gradient(180deg, transparent 56%, hsl(var(--navy) / 0.12) 100%);
+    /* background:
+      radial-gradient(circle at 14% 18%, hsl(var(--secondary) / 0.12), transparent 44%),
+      radial-gradient(circle at 86% 12%, hsl(var(--accent) / 0.1), transparent 40%),
+      linear-gradient(180deg, transparent 54%, hsl(var(--navy) / 0.14) 100%); */
   }
 
   .hero-image-media {
@@ -118,28 +127,103 @@
 
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    background-image: linear-gradient(
+      128deg,
+      hsl(var(--primary) / 0.98) 0%,
+      hsl(var(--secondary) / 0.88) 44%,
+      hsl(var(--navy) / 0.88) 100%
+    );
+    text-shadow: 0 9px 18px hsl(var(--secondary) / 0.1);
   }
 
   .bg-gradient-hero {
     background: linear-gradient(
       135deg,
       hsl(var(--primary) / 0.05) 0%,
-      hsl(var(--secondary) / 0.08) 50%,
+      /* hsl(var(--secondary) / 0.08) 50%, */
       hsl(var(--accent) / 0.05) 100%
     );
+    /* background:
+      radial-gradient(circle at 15% 10%, hsl(var(--primary) / 0.08), transparent 46%),
+      radial-gradient(circle at 88% 6%, hsl(var(--secondary) / 0.07), transparent 42%),
+      linear-gradient(
+        135deg,
+        hsl(var(--primary) / 0.04) 0%,
+        hsl(var(--secondary) / 0.05) 44%,
+        hsl(210 10% 63% / 0.15) 70%,
+        hsl(var(--accent) / 0.04) 100%
+      ),
+      radial-gradient(circle at 52% 88%, hsl(214 8% 58% / 0.1), transparent 45%); */
   }
 
   .shadow-card {
     box-shadow:
-      0 4px 24px -4px hsl(var(--primary) / 0.08),
-      0 1px 4px hsl(var(--primary) / 0.04);
+      0 8px 28px -10px hsl(var(--primary) / 0.2),
+      0 2px 8px hsl(var(--accent) / 0.09);
   }
 
   .shadow-card-hover {
     box-shadow:
-      0 12px 40px -8px hsl(var(--primary) / 0.15),
-      0 4px 12px hsl(var(--primary) / 0.06);
+      0 16px 44px -12px hsl(var(--primary) / 0.28),
+      0 6px 16px hsl(var(--accent) / 0.12);
+  }
+
+  .section-vivid {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+  }
+
+  .section-vivid > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-vivid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 14% 12%, hsl(var(--primary) / 0.12), transparent 38%),
+      radial-gradient(circle at 85% 8%, hsl(var(--secondary) / 0.11), transparent 36%),
+      linear-gradient(180deg, hsl(var(--background) / 0.52), hsl(var(--background) / 0.95));
+  }
+
+  .section-vivid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.24;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cpath d='M17 12v10M12 17h10' stroke='rgba(31,150,184,0.16)' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 34px 34px;
+    background-position: 0 0;
+    mask-image: linear-gradient(to bottom, transparent 2%, black 14%, black 86%, transparent 100%);
+  }
+
+  .section-vivid--cool::before {
+    background:
+      radial-gradient(circle at 12% 16%, hsl(var(--primary) / 0.15), transparent 40%),
+      radial-gradient(circle at 86% 12%, hsl(var(--accent) / 0.13), transparent 34%),
+      linear-gradient(180deg, hsl(var(--background) / 0.62), hsl(var(--background) / 0.96));
+  }
+
+  .section-vivid--aqua::before {
+    background:
+      radial-gradient(circle at 9% 18%, hsl(var(--secondary) / 0.17), transparent 40%),
+      radial-gradient(circle at 92% 8%, hsl(var(--accent) / 0.14), transparent 36%),
+      linear-gradient(180deg, hsl(var(--background) / 0.7), hsl(var(--background) / 0.96));
+  }
+
+  .section-vivid--soft::before {
+    background:
+      radial-gradient(circle at 15% 14%, hsl(var(--primary) / 0.11), transparent 38%),
+      radial-gradient(circle at 80% 10%, hsl(var(--secondary) / 0.1), transparent 34%),
+      linear-gradient(180deg, hsl(var(--background) / 0.5), hsl(var(--background) / 0.95));
   }
 
   .site-bg-texture {
@@ -147,12 +231,12 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.24;
+    opacity: 0.31;
     background-image:
-      radial-gradient(hsl(var(--primary) / 0.12) 0.8px, transparent 0.8px),
-      linear-gradient(90deg, hsl(var(--border) / 0.32) 1px, transparent 1px),
+      radial-gradient(hsl(var(--primary) / 0.13) 0.8px, transparent 0.8px),
+      linear-gradient(90deg, hsl(var(--border) / 0.34) 1px, transparent 1px),
       linear-gradient(hsl(var(--border) / 0.28) 1px, transparent 1px);
-    background-size: 24px 24px, 96px 96px, 96px 96px;
+    background-size: 24px 24px, 92px 92px, 92px 92px;
     background-position: 0 0, -1px -1px, -1px -1px;
     mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
   }
@@ -163,12 +247,12 @@
     height: 65vh;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.7;
-    filter: blur(36px);
+    opacity: 0.72;
+    filter: blur(35px);
     background:
-      radial-gradient(circle at 18% 8%, hsl(var(--primary) / 0.25), transparent 38%),
-      radial-gradient(circle at 84% 12%, hsl(var(--accent) / 0.24), transparent 36%),
-      radial-gradient(circle at 54% 0%, hsl(var(--secondary) / 0.2), transparent 34%);
+      radial-gradient(circle at 18% 8%, hsl(var(--primary) / 0.28), transparent 40%),
+      radial-gradient(circle at 84% 12%, hsl(var(--accent) / 0.25), transparent 38%),
+      radial-gradient(circle at 54% 0%, hsl(var(--secondary) / 0.22), transparent 36%);
     animation: aurora-drift 18s ease-in-out infinite alternate;
   }
 
@@ -236,7 +320,7 @@
   }
 
   .site-bg-texture {
-    opacity: 0.36;
+    opacity: 0.34;
   }
 
   [data-promo-panel] {
@@ -248,6 +332,39 @@
 }
 
 @media (max-width: 767px) {
+  .bg-gradient-hero {
+    background:
+      radial-gradient(circle at 20% 8%, hsl(var(--primary) / 0.05), transparent 50%),
+      radial-gradient(circle at 86% 3%, hsl(var(--secondary) / 0.04), transparent 46%),
+      linear-gradient(
+        145deg,
+        hsl(var(--primary) / 0.025) 0%,
+        hsl(var(--secondary) / 0.03) 46%,
+        hsl(210 10% 62% / 0.11) 70%,
+        hsl(var(--accent) / 0.025) 100%
+      );
+  }
+
+  .hero-image-shell::before {
+    background:
+      radial-gradient(circle at 14% 18%, hsl(var(--secondary) / 0.08), transparent 48%),
+      radial-gradient(circle at 86% 12%, hsl(var(--accent) / 0.07), transparent 44%),
+      linear-gradient(180deg, transparent 58%, hsl(var(--navy) / 0.1) 100%);
+  }
+
+  .section-vivid::before {
+    opacity: 0.75;
+  }
+
+  .section-vivid::after {
+    opacity: 0.12;
+    background-size: 38px 38px;
+  }
+
+  .site-bg-texture {
+    opacity: 0.18;
+  }
+
   main > section + section {
     position: relative;
   }

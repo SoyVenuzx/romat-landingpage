@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import { CalendarClock, CreditCard, HandHeart } from 'lucide-react';
-import consultingRoomImage from '../../assets/consultorio3.jpeg';
 import DoctorImage from '../../assets/doctora.jpg';
 import {
   clinicSchedule,
@@ -28,12 +27,12 @@ const highlightCards = [
 ];
 ---
 
-<section class="bg-muted/45 py-12 lg:py-14">
+<section class="section-vivid section-vivid--aqua bg-muted/45 py-12 lg:py-14">
   <div class="container mx-auto px-4 lg:px-8">
     <div class="mx-auto max-w-5xl">
       <div class="mb-8 text-center lg:mb-9" data-reveal>
         <span
-          class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary"
+          class="mb-3 inline-block rounded-full border border-primary/30 bg-gradient-to-r from-primary/16 via-secondary/14 to-primary/8 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-[0_12px_28px_-20px_hsl(var(--primary)/0.65)]"
         >
           Por qué elegirnos
         </span>

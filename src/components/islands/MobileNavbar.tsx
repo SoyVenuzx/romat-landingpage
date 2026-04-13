@@ -90,7 +90,7 @@ export default function MobileNavbar({ navLinks }: MobileNavbarProps) {
       <button
         type="button"
         onClick={toggleMenu}
-        className="relative z-[95] flex h-10 w-10 items-center justify-center rounded-xl text-foreground transition-colors hover:bg-muted lg:hidden"
+        className="relative z-[95] flex h-10 w-10 items-center justify-center rounded-xl bg-card/82 text-foreground backdrop-blur-sm transition-colors hover:bg-muted lg:hidden"
         aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
         aria-expanded={isOpen}
         aria-controls="mobile-nav-panel"
