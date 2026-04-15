@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { Heart, ShieldCheck } from 'lucide-react';
 import consultationRoomImage from '../../assets/consultorio2.jpeg';
 import pediatricsRoomImage from '../../assets/pediatria.jpeg';
-import receptionImage from '../../assets/recepcion.jpeg';
+import doctorImage from '../../assets/matute.jpeg'
 ---
 
 <section id="nosotros" class="section-vivid section-vivid--soft py-16 lg:py-20">
@@ -39,15 +39,15 @@ import receptionImage from '../../assets/recepcion.jpeg';
       </div>
 
       <div class="flex-1" data-reveal data-delay="180">
-        <div class="grid grid-cols-2 gap-3 sm:gap-4">
-          <div class="col-span-2 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:min-h-[680px] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto]">
+          <div class="col-span-2 overflow-hidden rounded-2xl border border-border bg-card shadow-card lg:col-span-1 lg:row-span-2">
             <Image
-              src={consultationRoomImage}
-              alt="Consultorio de Servicios Médicos ROMAT"
+              src={doctorImage}
+              alt="Doctor William Matute en su consultorio de Servicios Médicos ROMAT"
               format="webp"
               width={1600}
               height={900}
-              class="h-56 w-full object-cover sm:h-64"
+              class="h-56 w-full object-cover object-[58%_center] sm:h-64 lg:h-full"
               loading="lazy"
             />
           </div>
@@ -59,24 +59,24 @@ import receptionImage from '../../assets/recepcion.jpeg';
               format="webp"
               width={1599}
               height={899}
-              class="h-36 w-full object-cover sm:h-40"
+              class="h-40 w-full object-cover object-center sm:h-44 lg:h-full"
               loading="lazy"
             />
           </div>
 
           <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
             <Image
-              src={receptionImage}
-              alt="Recepción principal de Servicios Médicos ROMAT"
+              src={consultationRoomImage}
+              alt="Consultorio médico de Servicios Médicos ROMAT"
               format="webp"
-              width={900}
-              height={1600}
-              class="h-36 w-full object-cover object-top sm:h-40"
+              width={1600}
+              height={900}
+              class="h-40 w-full object-cover object-[center_46%] sm:h-44 lg:h-full"
               loading="lazy"
             />
           </div>
 
-          <div class="col-span-2 rounded-2xl border border-border bg-card p-4 shadow-card">
+          <div class="col-span-2 rounded-2xl border border-border bg-card p-4 shadow-card lg:col-span-2">
             <div class="inline-flex items-center gap-2 text-sm font-bold text-foreground">
               <ShieldCheck size={16} className="text-primary" />
               Instalaciones equipadas para consulta, diagnóstico y seguimiento integral.

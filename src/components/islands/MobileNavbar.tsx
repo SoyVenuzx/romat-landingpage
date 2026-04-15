@@ -125,7 +125,7 @@ export default function MobileNavbar({ navLinks }: MobileNavbarProps) {
                   <a
                     href={link.href}
                     onClick={closeMenu}
-                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-foreground transition-all hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="block rounded-xl px-4 py-3 text-sm font-bold text-navy transition-all hover:bg-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {link.label}
                   </a>

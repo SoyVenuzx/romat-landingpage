@@ -1,29 +1,29 @@
 ---
-import { Image } from 'astro:assets';
-import { CalendarClock, CreditCard, HandHeart } from 'lucide-react';
-import DoctorImage from '../../assets/doctora.jpg';
+import { Image } from "astro:assets";
+import { CalendarClock, CreditCard, HandHeart } from "lucide-react";
+import DoctorImage from "../../assets/doctora.jpg";
 import {
-  clinicSchedule,
-  homeConsultation,
-  paymentMethods,
-} from '../../data/clinic-info';
+	clinicSchedule,
+	homeConsultation,
+	paymentMethods,
+} from "../../data/clinic-info";
 
 const highlightCards = [
-  {
-    icon: CalendarClock,
-    title: 'Horarios de atención',
-    lines: [clinicSchedule.weekdays, clinicSchedule.weekend],
-  },
-  {
-    icon: HandHeart,
-    title: homeConsultation.title,
-    lines: [homeConsultation.description, homeConsultation.coverage],
-  },
-  {
-    icon: CreditCard,
-    title: 'Métodos de pago',
-    lines: paymentMethods,
-  },
+	{
+		icon: CalendarClock,
+		title: "Horarios de atención",
+		lines: [clinicSchedule.weekdays, clinicSchedule.weekend],
+	},
+	{
+		icon: HandHeart,
+		title: homeConsultation.title,
+		lines: [homeConsultation.description, homeConsultation.coverage],
+	},
+	{
+		icon: CreditCard,
+		title: "Métodos de pago",
+		lines: paymentMethods,
+	},
 ];
 ---
 
@@ -68,21 +68,23 @@ const highlightCards = [
           />
         </figure>
 
-        <div class="grid gap-3">
+        <div class="grid gap-3 my-auto">
           {
             highlightCards.map((card, index) => (
               <article
-                class="rounded-2xl border border-border bg-card p-3.5 shadow-card"
+                class="rounded-2xl border border-border bg-card p-5 shadow-card"
                 data-reveal
                 data-delay={130 + index * 85}
               >
-                <div class="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15">
-                  <card.icon size={20} className="text-accent" />
-                </div>
+                <div class="flex gap-2 items-center">
+                  <div class="mb-2.5 flex h-8 w-8 items-center justify-center rounded-xl bg-accent/15">
+                    <card.icon size={20} className="text-accent" />
+                  </div>
 
-                <h3 class="mb-2 text-base font-bold text-foreground">
-                  {card.title}
-                </h3>
+                  <h3 class="mb-2 text-md font-bold text-foreground">
+                    {card.title}
+                  </h3>
+                </div>
 
                 <ul class="space-y-2">
                   {card.lines.map((line) => (

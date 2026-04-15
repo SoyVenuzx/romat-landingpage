@@ -31,10 +31,11 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
     {
       id: 'medicina-interna',
       icon: 'Activity',
-      name: 'Medicina Interna',
-      desc: 'Atención integral del adulto y control de enfermedades crónicas.',
+      name: 'Medicina Interna & Diabetología',
+      desc:
+        'Atención integral del adulto con enfoque en diabetes y salud metabólica.',
       details:
-        'Valoración clínica completa, ajuste de tratamientos y seguimiento continuo para hipertensión, diabetes y otras condiciones de larga evolución.',
+        'Valoración clínica completa, control glucémico, ajuste de tratamientos y seguimiento continuo para hipertensión, diabetes y otras condiciones crónicas.',
     },
     {
       id: 'chequeo-ocupacional',
@@ -87,12 +88,13 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
         'Atención psicológica para adolescentes y adultos con estrategias terapéuticas orientadas a manejo emocional, adaptación y calidad de vida.',
     },
     {
-      id: 'dermatologia',
-      icon: 'Pill',
-      name: 'Dermatología',
-      desc: 'Tratamientos para piel, cabello y uñas.',
+      id: 'obesidad-metabolismo',
+      icon: 'Activity',
+      name: 'Obesidad y Metabolismo',
+      desc:
+        'Evaluación y manejo integral de sobrepeso, obesidad y trastornos metabólicos.',
       details:
-        'Atención dermatológica para diagnóstico clínico, control de brotes y tratamiento de condiciones cutáneas frecuentes.',
+        'Diseñamos un plan personalizado de tratamiento, hábitos y seguimiento clínico para mejorar la salud metabólica y reducir riesgos asociados.',
     },
   ],
   Procedimientos: [
@@ -132,11 +134,12 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
 };
 
 export const serviceOptions = [
-  'Medicina interna',
+  'Medicina interna y diabetología',
   'Chequeo ocupacional',
   'Cardiología',
   'Pediatría',
   'Audiometría',
+  'Obesidad y metabolismo',
   'Psicología',
   'Ortopedia',
   'Laboratorio',

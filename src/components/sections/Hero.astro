@@ -1,23 +1,23 @@
 ---
 import { Image } from 'astro:assets';
 import {
+  Activity,
   ArrowRight,
   CalendarCheck2,
   CheckCircle2,
-  Clock3,
   Facebook,
   FlaskConical,
+  House,
   Instagram,
   MapPin,
-  ShieldCheck,
 } from 'lucide-react';
 import clinicFacadeImage from '../../assets/clinica_desde_afuera.jpg';
 import { clinicBusinessData } from '../../utils/seo';
 
 const trustItems = [
-  { icon: ShieldCheck, label: 'Especialistas certificados' },
+  { icon: Activity, label: 'Ultrasonidos diagnósticos' },
   { icon: FlaskConical, label: 'Servicios de laboratorio' },
-  { icon: Clock3, label: 'Horarios extendidos' },
+  { icon: House, label: 'Atención médica a domicilio' },
 ];
 ---
 
@@ -177,11 +177,11 @@ const trustItems = [
         </div> -->
 
         <div
-          class="mt-6 hidden w-full max-w-xl flex-wrap items-center justify-center gap-2 motion-safe:opacity-0 motion-safe:animate-fade-up motion-reduce:opacity-100 motion-reduce:animate-none [animation-delay:420ms] sm:flex lg:justify-start"
+          class="mt-6 flex w-full max-w-xl flex-wrap items-center justify-center gap-2 motion-safe:opacity-0 motion-safe:animate-fade-up motion-reduce:opacity-100 motion-reduce:animate-none [animation-delay:420ms] lg:justify-start"
         >
           {
             trustItems.map((item) => (
-              <div class="inline-flex items-center gap-2 rounded-full border border-border/75 bg-card/85 px-3 py-1.5 text-xs font-semibold text-foreground shadow-card">
+              <div class="inline-flex w-full items-center justify-start gap-2 rounded-full border border-border/75 bg-card/85 px-3 py-1.5 text-xs font-semibold text-foreground shadow-card sm:w-auto">
                 <div class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <item.icon size={14} className="text-primary" />
                 </div>
