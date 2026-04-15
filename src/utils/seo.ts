@@ -45,16 +45,16 @@ export const clinicBusinessData: ClinicBusinessData = {
   description:
     'Clínica médica local en Villa Sol, Managua (Nicaragua), con medicina interna, especialidades y laboratorio clínico para toda la familia.',
   type: 'MedicalClinic',
-  phone: '+505 8360 7978',
-  whatsappNumber: '+505 8360 7978',
+  phone: '+50583607978',
+  whatsappNumber: '+50583607978',
   // TODO: Replace with real clinic data
   email: 'contacto@romat.com.ni',
   address: {
-    streetAddress: 'Villa Sol, Managua',
+    streetAddress: 'Entrada de Villa Sol, Sabana Grande. Esquina a mano izquierda, edificio B1-6.',
     addressLocality: 'Managua',
     addressRegion: 'Managua',
     // TODO: Replace with real clinic data
-    postalCode: '00000',
+    postalCode: '14091',
     addressCountry: 'NI',
   },
   geo: {
@@ -62,8 +62,8 @@ export const clinicBusinessData: ClinicBusinessData = {
     longitude: -86.15754390556445,
   },
   // TODO: Replace with real clinic data
-  openingHours: ['Mo-Fr 08:00-20:00', 'Sa-Su 09:00-14:00'],
-  image: '/og-romat.jpg',
+  openingHours: ['Mo-Fr 07:00-17:00', 'Sa 07:00-12:00'],
+  image: '/images/clinic/og.webp',
   social: {
     facebook: 'https://www.facebook.com/Atencionmedicaromat',
     instagram: 'https://www.instagram.com/especialidadesromat/',
