@@ -10,7 +10,7 @@ import { serviceCategories, servicesByCategory } from '../../data/services';
       <SectionHeading
         badge="Nuestros servicios"
         title="Cuidado médico integral"
-        description="Te mostramos algunos de nuestros servicios principales. También contamos con más opciones médicas para cuidar de ti y tu familia."
+        description="Mostramos una selección de servicios destacados por categoría. Si lo necesitas, puedes desplegar el catálogo completo dentro de cada área."
       />
     </div>
 
@@ -19,5 +19,10 @@ import { serviceCategories, servicesByCategory } from '../../data/services';
       categories={serviceCategories}
       services={servicesByCategory}
     />
+
+    <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+      Si no encuentras un procedimiento específico, puedes escribirnos por WhatsApp y te ayudamos a
+      validar disponibilidad según tu caso clínico.
+    </p>
   </div>
 </section>

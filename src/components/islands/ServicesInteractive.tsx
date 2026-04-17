@@ -24,6 +24,8 @@ type ServicesInteractiveProps = {
   services: Record<ServiceCategory, ServiceItem[]>;
 };
 
+const VISIBLE_LIMIT = 4;
+
 const iconMap: Record<ServiceIcon, LucideIcon> = {
   Stethoscope,
   HeartPulse,
@@ -44,14 +46,24 @@ export default function ServicesInteractive({
   const [activeCategory, setActiveCategory] = useState<ServiceCategory>('Consultas');
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [animationCycle, setAnimationCycle] = useState(0);
+  const [showFullCatalogByCategory, setShowFullCatalogByCategory] = useState<
+    Partial<Record<ServiceCategory, boolean>>
+  >({});
+
+  const activeServices = services[activeCategory];
+  const showFullCatalog = Boolean(showFullCatalogByCategory[activeCategory]);
+  const hasExpandableCatalog = activeServices.length > VISIBLE_LIMIT;
+  const visibleServices = showFullCatalog
+    ? activeServices
+    : activeServices.slice(0, VISIBLE_LIMIT);
 
   return (
     <>
       <div className="mb-8 motion-safe:animate-fade-up motion-safe:opacity-0 motion-reduce:animate-none motion-reduce:opacity-100" style={{ animationDelay: '120ms', animationFillMode: 'both' }}>
         <div className="mx-auto w-full max-w-[22rem] px-1 sm:max-w-max sm:px-0">
-          <div className="no-scrollbar overflow-x-auto rounded-2xl px-1 py-1">
-            <div className="inline-flex min-w-max gap-1 rounded-2xl bg-muted p-1.5">
-              {categories.map((category) => (
+          <div className="rounded-2xl bg-muted p-1.5">
+            <div className="grid grid-cols-2 gap-1 sm:inline-flex sm:min-w-max sm:gap-1">
+              {categories.map((category, index) => (
                 <button
                   key={category}
                   type="button"
@@ -63,7 +75,7 @@ export default function ServicesInteractive({
                     setExpandedId(null);
                     setAnimationCycle((prev) => prev + 1);
                   }}
-                  className={`rounded-xl px-5 py-2.5 text-sm font-bold transition-all sm:px-6 ${
+                  className={`${index === categories.length - 1 && categories.length % 2 !== 0 ? 'col-span-2 sm:col-span-1' : ''} rounded-xl px-4 py-2.5 text-sm font-bold transition-all sm:px-6 ${
                     activeCategory === category
                       ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
                       : 'text-muted-foreground hover:text-foreground'
@@ -77,8 +89,38 @@ export default function ServicesInteractive({
         </div>
       </div>
 
-      <div key={animationCycle} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {services[activeCategory].map((service, index) => {
+      <div className="mb-6 flex flex-col gap-3 rounded-2xl border border-border bg-card/80 p-4 shadow-card sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm font-medium leading-relaxed text-muted-foreground">
+          {showFullCatalog
+            ? `Mostrando los ${activeServices.length} servicios de ${activeCategory}.`
+            : `Mostrando ${visibleServices.length} servicios destacados de ${activeCategory}.`}
+        </p>
+
+        {hasExpandableCatalog && (
+          <button
+            type="button"
+            onClick={() => {
+              setShowFullCatalogByCategory((prev) => ({
+                ...prev,
+                [activeCategory]: !showFullCatalog,
+              }));
+              setExpandedId(null);
+            }}
+            className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-4 text-sm font-bold text-primary transition-colors hover:bg-primary/15 sm:w-auto"
+          >
+            {showFullCatalog
+              ? 'Ver solo destacados'
+              : `Ver catálogo completo (${activeServices.length})`}
+            <ArrowRight size={14} className="transition-transform" />
+          </button>
+        )}
+      </div>
+
+      <div
+        key={`${animationCycle}-${activeCategory}-${showFullCatalog ? 'all' : 'featured'}`}
+        className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+      >
+        {visibleServices.map((service, index) => {
           const Icon = iconMap[service.icon];
           const isExpanded = expandedId === service.id;
 

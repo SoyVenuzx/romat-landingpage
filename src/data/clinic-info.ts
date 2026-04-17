@@ -18,8 +18,9 @@ export const clinicBusinessHours = {
 export const homeConsultation = {
   title: 'Consultas a domicilio',
   description:
-    'Atención médica programada para pacientes con movilidad limitada o seguimiento post-tratamiento.',
-  coverage: 'Cobertura local sujeta a disponibilidad.',
+    'Atención médica profesional en casa con comodidad, privacidad y seguridad, ideal para adultos mayores, niños y personas con movilidad reducida, evitando traslados, largas esperas y exposición innecesaria.',
+  coverage:
+    'Incluye evaluación médica general y del entorno, curaciones (incluyendo sistema VAC), inyecciones, nebulizaciones, toma de muestras y chequeos preventivos, sujeto a disponibilidad.',
 };
 
 export const paymentMethods = [

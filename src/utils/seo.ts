@@ -48,9 +48,10 @@ export const clinicBusinessData: ClinicBusinessData = {
   phone: '+50583607978',
   whatsappNumber: '+50583607978',
   // TODO: Replace with real clinic data
-  email: 'contacto@romat.com.ni',
+  email: 'serviciosmedicosromat@hotmail.com',
   address: {
-    streetAddress: 'Entrada de Villa Sol, Sabana Grande. Esquina a mano izquierda, edificio B1-6.',
+    streetAddress:
+      'Entrada de Villa Sol, Sabana Grande, segundo andén a mano derecha, edificio B1-6, esquinero.',
     addressLocality: 'Managua',
     addressRegion: 'Managua',
     // TODO: Replace with real clinic data

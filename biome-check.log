@@ -1,0 +1,164 @@
+src/utils/seo.ts format ━━━━━━━━━━
+
+  × Formatter would have printed the following content:
+  
+      1   1 │   export type SocialLinks = {
+      2     │ - ··facebook:·string;
+      3     │ - ··instagram:·string;
+      4     │ - ··x?:·string;
+          2 │ + → facebook:·string;
+          3 │ + → instagram:·string;
+          4 │ + → x?:·string;
+      5   5 │   };
+      6   6 │   
+      7   7 │   export type ClinicAddress = {
+      8     │ - ··streetAddress:·string;
+      9     │ - ··addressLocality:·string;
+     10     │ - ··addressRegion:·string;
+     11     │ - ··postalCode:·string;
+     12     │ - ··addressCountry:·string;
+          8 │ + → streetAddress:·string;
+          9 │ + → addressLocality:·string;
+         10 │ + → addressRegion:·string;
+         11 │ + → postalCode:·string;
+         12 │ + → addressCountry:·string;
+     13  13 │   };
+     14  14 │   
+     15  15 │   export type ClinicBusinessData = {
+     16     │ - ··name:·string;
+     17     │ - ··legalName:·string;
+     18     │ - ··description:·string;
+     19     │ - ··type:·'MedicalClinic';
+     20     │ - ··phone:·string;
+     21     │ - ··whatsappNumber:·string;
+     22     │ - ··email:·string;
+     23     │ - ··address:·ClinicAddress;
+     24     │ - ··geo:·{
+     25     │ - ····latitude:·number;
+     26     │ - ····longitude:·number;
+     27     │ - ··};
+     28     │ - ··openingHours:·string[];
+     29     │ - ··image:·string;
+     30     │ - ··social:·SocialLinks;
+         16 │ + → name:·string;
+         17 │ + → legalName:·string;
+         18 │ + → description:·string;
+         19 │ + → type:·"MedicalClinic";
+         20 │ + → phone:·string;
+         21 │ + → whatsappNumber:·string;
+         22 │ + → email:·string;
+         23 │ + → address:·ClinicAddress;
+         24 │ + → geo:·{
+         25 │ + → → latitude:·number;
+         26 │ + → → longitude:·number;
+         27 │ + → };
+         28 │ + → openingHours:·string[];
+         29 │ + → image:·string;
+         30 │ + → social:·SocialLinks;
+     31  31 │   };
+     32  32 │   
+     33  33 │   export type PageMetaInput = {
+     34     │ - ··title:·string;
+     35     │ - ··description:·string;
+     36     │ - ··path?:·string;
+     37     │ - ··image?:·string;
+     38     │ - ··type?:·'website'·|·'article';
+     39     │ - ··noIndex?:·boolean;
+         34 │ + → title:·string;
+         35 │ + → description:·string;
+         36 │ + → path?:·string;
+         37 │ + → image?:·string;
+         38 │ + → type?:·"website"·|·"article";
+         39 │ + → noIndex?:·boolean;
+     40  40 │   };
+     41  41 │   
+     42  42 │   export const clinicBusinessData: ClinicBusinessData = {
+     43     │ - ··name:·'Servicios·Médicos·ROMAT',
+     44     │ - ··legalName:·'Servicios·Médicos·ROMAT',
+     45     │ - ··description:
+     46     │ - ····'Clínica·médica·local·en·Villa·Sol,·Managua·(Nicaragua),·con·medicina·interna,·especialidades·y·laboratorio·clínico·para·toda·la·familia.',
+     47     │ - ··type:·'MedicalClinic',
+     48     │ - ··phone:·'+50583607978',
+     49     │ - ··whatsappNumber:·'+50583607978',
+     50     │ - ··//·TODO:·Replace·with·real·clinic·data
+     51     │ - ··email:·'contacto@romat.com.ni',
+     52     │ - ··address:·{
+     53     │ - ····streetAddress:
+     54     │ - ······'Entrada·de·Villa·Sol,·Sabana·Grande,·segundo·andén·a·mano·derecha,·edificio·B1-6,·esquinero.',
+     55     │ - ····addressLocality:·'Managua',
+     56     │ - ····addressRegion:·'Managua',
+     57     │ - ····//·TODO:·Replace·with·real·clinic·data
+     58     │ - ····postalCode:·'14091',
+     59     │ - ····addressCountry:·'NI',
+     60     │ - ··},
+     61     │ - ··geo:·{
+     62     │ - ····latitude:·12.106097082248313,
+     63     │ - ····longitude:·-86.15754390556445,
+     64     │ - ··},
+     65     │ - ··//·TODO:·Replace·with·real·clinic·data
+     66     │ - ··openingHours:·['Mo-Fr·07:00-17:00',·'Sa·07:00-12:00'],
+     67     │ - ··image:·'/images/clinic/og.webp',
+     68     │ - ··social:·{
+     69     │ - ····facebook:·'https://www.facebook.com/Atencionmedicaromat',
+     70     │ - ····instagram:·'https://www.instagram.com/especialidadesromat/',
+     71     │ - ··},
+         43 │ + → name:·"Servicios·Médicos·ROMAT",
+         44 │ + → legalName:·"Servicios·Médicos·ROMAT",
+         45 │ + → description:
+         46 │ + → → "Clínica·médica·local·en·Villa·Sol,·Managua·(Nicaragua),·con·medicina·interna,·especialidades·y·laboratorio·clínico·para·toda·la·familia.",
+         47 │ + → type:·"MedicalClinic",
+         48 │ + → phone:·"+50583607978",
+         49 │ + → whatsappNumber:·"+50583607978",
+         50 │ + → //·TODO:·Replace·with·real·clinic·data
+         51 │ + → email:·"contacto@romat.com.ni",
+         52 │ + → address:·{
+         53 │ + → → streetAddress:
+         54 │ + → → → "Entrada·de·Villa·Sol,·Sabana·Grande,·segundo·andén·a·mano·derecha,·edificio·B1-6,·esquinero.",
+         55 │ + → → addressLocality:·"Managua",
+         56 │ + → → addressRegion:·"Managua",
+         57 │ + → → //·TODO:·Replace·with·real·clinic·data
+         58 │ + → → postalCode:·"14091",
+         59 │ + → → addressCountry:·"NI",
+         60 │ + → },
+         61 │ + → geo:·{
+         62 │ + → → latitude:·12.106097082248313,
+         63 │ + → → longitude:·-86.15754390556445,
+         64 │ + → },
+         65 │ + → //·TODO:·Replace·with·real·clinic·data
+         66 │ + → openingHours:·["Mo-Fr·07:00-17:00",·"Sa·07:00-12:00"],
+         67 │ + → image:·"/images/clinic/og.webp",
+         68 │ + → social:·{
+         69 │ + → → facebook:·"https://www.facebook.com/Atencionmedicaromat",
+         70 │ + → → instagram:·"https://www.instagram.com/especialidadesromat/",
+         71 │ + → },
+     72  72 │   };
+     73  73 │   
+     74     │ - export·const·buildCanonicalUrl·=·(site:·string,·path·=·'/')·=>·{
+     75     │ - ··const·normalizedSite·=·site.replace(/\/$/,·'');
+     76     │ - ··const·normalizedPath·=·path.startsWith('/')·?·path·:·`/${path}`;
+     77     │ - ··return·`${normalizedSite}${normalizedPath}`;
+         74 │ + export·const·buildCanonicalUrl·=·(site:·string,·path·=·"/")·=>·{
+         75 │ + → const·normalizedSite·=·site.replace(/\/$/,·"");
+         76 │ + → const·normalizedPath·=·path.startsWith("/")·?·path·:·`/${path}`;
+         77 │ + → return·`${normalizedSite}${normalizedPath}`;
+     78  78 │   };
+     79  79 │   
+     80  80 │   export const buildPageMeta = (meta: PageMetaInput, site: string) => {
+     81     │ - ··const·canonicalUrl·=·buildCanonicalUrl(site,·meta.path·??·'/');
+     82     │ - ··const·image·=·meta.image·??·clinicBusinessData.image;
+         81 │ + → const·canonicalUrl·=·buildCanonicalUrl(site,·meta.path·??·"/");
+         82 │ + → const·image·=·meta.image·??·clinicBusinessData.image;
+     83  83 │   
+     84     │ - ··return·{
+     85     │ - ····title:·meta.title,
+     86     │ - ····description:·meta.description,
+  82 more lines truncated
+  
+
+Checked 1 file in 5ms. No fixes applied.
+Found 1 error.
+check ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  × Some errors were emitted while running checks.
+  
+

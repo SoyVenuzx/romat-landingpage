@@ -1,0 +1,104 @@
+---
+import {
+  Eye,
+  HeartHandshake,
+  ShieldCheck,
+  Stethoscope,
+  Target,
+} from 'lucide-react';
+
+const strategicPillars = [
+  {
+    icon: HeartHandshake,
+    title: 'Trato humano y cercano',
+    description:
+      'Escuchamos, explicamos y acompañamos cada proceso médico con empatía y claridad.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Prevención y seguimiento',
+    description:
+      'Priorizamos controles oportunos y planes de cuidado para evitar complicaciones futuras.',
+  },
+  {
+    icon: Stethoscope,
+    title: 'Diagnóstico confiable',
+    description:
+      'Combinamos experiencia clínica y herramientas diagnósticas para decisiones médicas seguras.',
+  },
+];
+---
+
+<section
+  id="mision-vision"
+  class="section-vivid section-vivid--cool bg-muted/35 py-16 lg:py-20"
+>
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-10 text-center" data-reveal>
+        <span
+          class="mb-3 inline-block rounded-full border border-primary/30 bg-gradient-to-r from-primary/14 via-secondary/12 to-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-[0_12px_28px_-18px_hsl(var(--primary)/0.58)]"
+        >
+          Misión y visión
+        </span>
+        <h2 class="mb-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
+          Dirección que guía cada atención
+        </h2>
+        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+          Esta base institucional nos ayuda a mantener un servicio consistente, humano y orientado
+          a resultados para pacientes, familias y empresas.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-2 lg:gap-5">
+        <article
+          class="rounded-2xl border border-primary/25 bg-gradient-to-br from-primary/12 via-card to-card p-6 shadow-card"
+          data-reveal
+          data-delay="90"
+        >
+          <div class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/14">
+            <Target size={22} className="text-primary" />
+          </div>
+          <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-foreground">Misión</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Brindar atención médica integral, accesible y de alta calidad, con enfoque preventivo,
+            trato humano y acompañamiento continuo para mejorar la salud y el bienestar de nuestra
+            comunidad.
+          </p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-card to-card p-6 shadow-card"
+          data-reveal
+          data-delay="150"
+        >
+          <div class="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/14">
+            <Eye size={22} className="text-accent" />
+          </div>
+          <h3 class="mb-3 text-2xl font-extrabold tracking-tight text-foreground">Visión</h3>
+          <p class="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Ser una clínica de referencia en Managua por la confianza de nuestros pacientes, la
+            calidad profesional del equipo y la capacidad de ofrecer soluciones médicas oportunas en
+            consulta, diagnóstico y seguimiento.
+          </p>
+        </article>
+      </div>
+
+      <div class="mt-6 grid gap-3 md:grid-cols-3" data-reveal data-delay="210">
+        {
+          strategicPillars.map((pillar) => (
+            <article class="rounded-2xl border border-border bg-card p-4 shadow-card">
+              <div class="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/12">
+                <pillar.icon size={18} className="text-accent" />
+              </div>
+              <h4 class="text-sm font-extrabold text-foreground">{pillar.title}</h4>
+              <p class="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                {pillar.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

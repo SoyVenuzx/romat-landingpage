@@ -12,6 +12,7 @@ export type LabPromotion = {
   id: string;
   title: string;
   badge: string;
+  origin: 'clinica' | 'laboratorio' | 'combo';
   summary: string;
   includes: string[];
   validity: string;
@@ -53,6 +54,7 @@ export const labPromotions: LabPromotion[] = [
     id: 'paquete-chequeo-general',
     title: 'Paquete Chequeo General',
     badge: 'Paquete permanente',
+    origin: 'combo',
     summary: 'Ideal para chequeo preventivo y control general de la salud.',
     includes: [
       'Colesterol',
@@ -88,6 +90,7 @@ export const labPromotions: LabPromotion[] = [
     id: 'perfil-hepatico-abril',
     title: 'Perfil Hepático',
     badge: 'Solo abril',
+    origin: 'laboratorio',
     summary: '10 análisis completos en un solo examen.',
     includes: ['10 análisis completos en un solo examen.'],
     validity: 'Disponible únicamente durante el mes de abril.',

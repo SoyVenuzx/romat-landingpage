@@ -40,7 +40,7 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
     {
       id: 'chequeo-ocupacional',
       icon: 'Stethoscope',
-      name: 'Chequeo ocupacional',
+      name: 'Chequeos médicos ocupacionales',
       desc: 'Evaluaciones médicas para ingreso, control periódico y aptitud laboral.',
       details:
         'Realizamos chequeos para empresas y trabajadores con enfoque preventivo, documentación clínica y recomendaciones de salud ocupacional.',
@@ -123,6 +123,14 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
         'Registro y lectura clínica para apoyar diagnóstico cardiovascular y seguimiento de síntomas cardíacos.',
     },
     {
+      id: 'ecocardiograma',
+      icon: 'HeartPulse',
+      name: 'Ecocardiograma',
+      desc: 'Estudio de imagen para evaluar estructura y función del corazón.',
+      details:
+        'Examen no invasivo que permite valorar cavidades cardíacas, válvulas y movimiento del músculo cardíaco para apoyar diagnóstico y control clínico.',
+    },
+    {
       id: 'ultrasonido',
       icon: 'HeartPulse',
       name: 'Ultrasonido',
@@ -130,13 +138,63 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
       details:
         'Estudios por imagen no invasivos para evaluación de tejidos y órganos, con interpretación profesional.',
     },
+    {
+      id: 'espirometria',
+      icon: 'Activity',
+      name: 'Espirometría',
+      desc: 'Valoración de la capacidad respiratoria para control y seguimiento.',
+      details:
+        'Prueba funcional pulmonar para detectar alteraciones respiratorias, evaluar respuesta al tratamiento y seguimiento de pacientes con síntomas respiratorios.',
+    },
+    {
+      id: 'audiometria-ocupacional',
+      icon: 'Microscope',
+      name: 'Audiometría ocupacional',
+      desc:
+        'Evaluación auditiva orientada a vigilancia médica en entornos laborales.',
+      details:
+        'Aplicamos pruebas auditivas para exámenes de ingreso, periódicos y egreso, con enfoque en prevención de riesgos por exposición al ruido.',
+    },
+    {
+      id: 'curaciones',
+      icon: 'Syringe',
+      name: 'Curaciones y control de heridas',
+      desc: 'Atención de heridas con manejo clínico y seguimiento seguro.',
+      details:
+        'Limpieza, valoración y cuidado de heridas agudas o crónicas, con recomendaciones de autocuidado para favorecer recuperación y prevenir complicaciones.',
+    },
+    {
+      id: 'nebulizacion',
+      icon: 'Pill',
+      name: 'Nebulización',
+      desc: 'Terapia respiratoria para aliviar síntomas de vías respiratorias.',
+      details:
+        'Aplicación de nebulizaciones bajo supervisión médica para manejo de tos, broncoespasmo e inflamación respiratoria según indicación clínica.',
+    },
+    {
+      id: 'lavado-otico',
+      icon: 'Stethoscope',
+      name: 'Lavado ótico',
+      desc: 'Procedimiento para remover tapón de cerumen y mejorar audición.',
+      details:
+        'Evaluación previa del conducto auditivo y extracción segura del cerumen para aliviar molestias y recuperar la audición en casos indicados.',
+    },
+    {
+      id: 'control-presion-glicemia',
+      icon: 'Activity',
+      name: 'Control de presión y glicemia',
+      desc: 'Monitoreo rápido para seguimiento de pacientes crónicos.',
+      details:
+        'Control periódico de signos clave en consulta para detectar variaciones tempranas y ajustar recomendaciones de tratamiento y estilo de vida.',
+    },
   ],
 };
 
 export const serviceOptions = [
   'Medicina interna y diabetología',
-  'Chequeo ocupacional',
+  'Chequeos médicos ocupacionales',
   'Cardiología',
+  'Ecocardiograma',
   'Pediatría',
   'Audiometría',
   'Obesidad y metabolismo',
