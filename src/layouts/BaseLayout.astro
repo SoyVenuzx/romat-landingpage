@@ -16,7 +16,10 @@ interface Props {
 const { meta } = Astro.props;
 const site = Astro.site?.toString() ?? 'https://www.serviciosmedicosromat.com';
 const pageMeta = buildPageMeta(meta, site);
-const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMeta.canonicalUrl);
+const localBusinessSchema = buildLocalBusinessSchema(
+  clinicBusinessData,
+  pageMeta.canonicalUrl,
+);
 ---
 
 <!doctype html>
@@ -26,7 +29,10 @@ const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMet
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={pageMeta.description} />
-    <meta name="robots" content={pageMeta.noIndex ? 'noindex, nofollow' : 'index, follow'} />
+    <meta
+      name="robots"
+      content={pageMeta.noIndex ? 'noindex, nofollow' : 'index, follow'}
+    />
 
     <meta property="og:type" content={pageMeta.type} />
     <meta property="og:site_name" content={clinicBusinessData.name} />
@@ -47,13 +53,20 @@ const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMet
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     />
 
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(localBusinessSchema)}
+    />
 
     <title>{pageMeta.title}</title>
     <ViewTransitions />
@@ -69,9 +82,11 @@ const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMet
 
     <script is:inline>
       const revealElements = () => {
-        const targets = [...document.querySelectorAll('[data-reveal]:not([data-reveal-bound])')].filter(
-          (element) => !element.closest('astro-island'),
-        );
+        const targets = [
+          ...document.querySelectorAll(
+            '[data-reveal]:not([data-reveal-bound])',
+          ),
+        ].filter((element) => !element.closest('astro-island'));
 
         if (!targets.length) {
           return;
@@ -108,7 +123,9 @@ const localBusinessSchema = buildLocalBusinessSchema(clinicBusinessData, pageMet
       };
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializePage, { once: true });
+        document.addEventListener('DOMContentLoaded', initializePage, {
+          once: true,
+        });
       } else {
         initializePage();
       }

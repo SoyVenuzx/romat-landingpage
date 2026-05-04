@@ -31,175 +31,201 @@ export const servicesByCategory: Record<ServiceCategory, ServiceItem[]> = {
     {
       id: 'medicina-interna',
       icon: 'Activity',
-      name: 'Medicina Interna & Diabetología',
+      name: 'Medicina interna',
       desc:
-        'Atención integral del adulto con enfoque en diabetes y salud metabólica.',
+        'Acompañamiento médico integral con enfoque en salud metabólica y diabetes.',
       details:
-        'Valoración clínica completa, control glucémico, ajuste de tratamientos y seguimiento continuo para hipertensión, diabetes y otras condiciones crónicas.',
+        'Analizamos tu salud como un todo con diagnóstico preciso y prevención de complicaciones futuras. Integramos holter de ritmo, holter de presión, espirometrías, glucometría y planes personalizados según tu evolución clínica.',
     },
     {
       id: 'chequeo-ocupacional',
       icon: 'Stethoscope',
       name: 'Chequeos médicos ocupacionales',
-      desc: 'Evaluaciones médicas para ingreso, control periódico y aptitud laboral.',
+      desc: 'Evaluaciones preventivas para entornos laborales seguros y productivos.',
       details:
-        'Realizamos chequeos para empresas y trabajadores con enfoque preventivo, documentación clínica y recomendaciones de salud ocupacional.',
+        'Valoramos a tus colaboradores con espirómetros, autorrefractómetro y audiómetro, cumpliendo normativa MINSA. Detectamos riesgos a tiempo para reducir ausentismo y mejorar el rendimiento del equipo.',
     },
     {
       id: 'cardiologia',
       icon: 'HeartPulse',
       name: 'Cardiología',
-      desc: 'Evaluación y seguimiento de la salud cardiovascular.',
+      desc: 'Detección temprana y manejo avanzado de tu salud cardiovascular.',
       details:
-        'Valoración cardiovascular inicial, interpretación de estudios y plan preventivo adaptado al perfil de riesgo del paciente.',
+        'Combinamos precisión clínica y tecnología para controlar arritmias, hipertensión y patologías coronarias. Realizamos electrocardiogramas, ecocardiogramas y mapeo de presión y ritmo para un diagnóstico completo.',
     },
     {
-      id: 'pediatria',
-      icon: 'Baby',
-      name: 'Pediatría',
-      desc: 'Cuidado especializado para la salud de los más pequeños.',
+      id: 'ortopedia-traumatologia',
+      icon: 'Bone',
+      name: 'Ortopedia y traumatología',
+      desc: 'Recuperación funcional de huesos y articulaciones con enfoque integral.',
       details:
-        'Monitoreo de crecimiento y desarrollo, orientación a padres y consulta integral pediátrica con enfoque preventivo.',
+        'Tratamos lesiones deportivas, pie diabético con sistema VAC y desgaste articular con infiltraciones y regeneración celular. Ofrecemos opciones quirúrgicas y no quirúrgicas para una recuperación rápida y efectiva.',
+    },
+    {
+      id: 'fisioterapia',
+      icon: 'Activity',
+      name: 'Fisioterapia',
+      desc: 'Rehabilitación personalizada para recuperar movilidad y aliviar dolor.',
+      details:
+        'Aplicamos terapia manual y tecnología de rehabilitación para acelerar tu recuperación y prevenir recaídas. Diseñamos planes de fortalecimiento para mejorar tu rendimiento físico y volver a tus actividades con seguridad.',
     },
   ],
   Especialidades: [
     {
-      id: 'audiometria',
-      icon: 'Activity',
-      name: 'Audiometría',
-      desc: 'Evaluación de la audición para detección temprana de alteraciones auditivas.',
+      id: 'pediatria-neonatologia',
+      icon: 'Baby',
+      name: 'Pediatría y neonatología',
+      desc: 'Atención integral desde el recién nacido hasta cada etapa de la infancia.',
       details:
-        'Pruebas auditivas con interpretación profesional para apoyar diagnóstico, seguimiento y recomendaciones de cuidado de la salud auditiva.',
-    },
-    {
-      id: 'ortopedia',
-      icon: 'Bone',
-      name: 'Ortopedia',
-      desc: 'Tratamiento de lesiones musculoesqueléticas.',
-      details:
-        'Valoración de dolor articular y lesiones óseas, con enfoque en rehabilitación funcional y recuperación segura.',
-    },
-    {
-      id: 'psicologia',
-      icon: 'Brain',
-      name: 'Psicología',
-      desc: 'Acompañamiento profesional para bienestar emocional y salud mental.',
-      details:
-        'Atención psicológica para adolescentes y adultos con estrategias terapéuticas orientadas a manejo emocional, adaptación y calidad de vida.',
+        'Brindamos cuidados neonatales de alta complejidad y vigilancia experta desde el primer día de vida. En pediatría acompañamos crecimiento y prevención con un trato cálido, profesional y cercano a cada familia.',
     },
     {
       id: 'obesidad-metabolismo',
       icon: 'Activity',
       name: 'Obesidad y Metabolismo',
       desc:
-        'Evaluación y manejo integral de sobrepeso, obesidad y trastornos metabólicos.',
+        'Manejo médico para regular metabolismo, peso y riesgos cardiometabólicos.',
       details:
-        'Diseñamos un plan personalizado de tratamiento, hábitos y seguimiento clínico para mejorar la salud metabólica y reducir riesgos asociados.',
+        'Diseñamos estrategias clínicas para pérdida de peso sostenible, control hormonal y mejor energía diaria. Tratamos resistencia a la insulina y síndrome metabólico con seguimiento integral a largo plazo.',
+    },
+    {
+      id: 'ginecologia-obstetricia',
+      icon: 'HeartPulse',
+      name: 'Ginecología y obstetricia',
+      desc: 'Cuidado integral de la salud femenina y reproductiva en cada etapa.',
+      details:
+        'Ofrecemos chequeos preventivos y tratamientos especializados en un entorno seguro y de confianza. Acompañamos tu bienestar con atención cercana y apoyo clínico continuo.',
+    },
+    {
+      id: 'dermatologia',
+      icon: 'Eye',
+      name: 'Dermatología',
+      desc: 'Diagnóstico y tratamiento avanzado para piel, cabello y uñas.',
+      details:
+        'Atendemos desde lesiones comunes hasta patologías complejas con enfoque médico de precisión. Complementamos con planes personalizados de cuidado dérmico y rejuvenecimiento con resultados reales.',
+    },
+    {
+      id: 'psicologia',
+      icon: 'Brain',
+      name: 'Psicología',
+      desc: 'Acompañamiento profesional para fortalecer tu bienestar emocional.',
+      details:
+        'Brindamos un espacio seguro para gestionar estrés, sanar vínculos y superar bloqueos emocionales. Nuestro enfoque empático favorece autoconocimiento, claridad y paz mental en tu día a día.',
+    },
+    {
+      id: 'urologia',
+      icon: 'Stethoscope',
+      name: 'Urología',
+      desc: 'Atención especializada del sistema urinario y salud íntima.',
+      details:
+        'Tratamos cálculos, infecciones urinarias y patologías prostáticas con diagnóstico preciso y enfoque de mínima invasión. Priorizamos una recuperación cómoda y una mejor calidad de vida funcional.',
+    },
+    {
+      id: 'cirugia',
+      icon: 'Syringe',
+      name: 'Cirugía',
+      desc: 'Procedimientos de alta precisión con enfoque en seguridad y recuperación.',
+      details:
+        'Realizamos cirugías especializadas, como colecistectomía laparoscópica y endoscopias avanzadas, bajo técnicas de mínima invasión. Nuestro objetivo es una recuperación más rápida y con menor riesgo de complicaciones.',
     },
   ],
   Procedimientos: [
     {
-      id: 'vacunacion',
-      icon: 'Syringe',
-      name: 'Vacunación',
-      desc: 'Esquemas completos para todas las edades.',
+      id: 'ultrasonidos',
+      icon: 'HeartPulse',
+      name: 'Ultrasonidos',
+      desc: 'Estudios no invasivos en tiempo real con alta precisión diagnóstica.',
       details:
-        'Aplicación segura de vacunas con seguimiento del esquema y recomendaciones para reforzar prevención en familia.',
+        'Utilizamos ondas sonoras de alta frecuencia para evaluar el cuerpo sin dolor ni radiación. Realizamos ecocardiogramas con cardiólogo certificado, Doppler arterial y venoso, ultrasonidos musculoesqueléticos y ginecológicos.',
     },
     {
-      id: 'estudios-clinicos',
-      icon: 'Microscope',
-      name: 'Estudios Clínicos',
-      desc: 'Análisis de laboratorio con resultados rápidos.',
+      id: 'cirugias-ortopedicas',
+      icon: 'Bone',
+      name: 'Cirugías ortopédicas',
+      desc: 'Soluciones avanzadas para recuperar movilidad y reducir dolor crónico.',
       details:
-        'Paneles de laboratorio para chequeos preventivos y control de enfermedades, con tiempos de entrega oportunos.',
+        'Aplicamos técnicas modernas para lesiones, desgaste articular y secuelas por trauma. Incluimos manejo avanzado del pie diabético con sistema VAC, parches y soporte especializado para úlceras complejas.',
+    },
+    {
+      id: 'infiltraciones-articulares',
+      icon: 'Syringe',
+      name: 'Infiltraciones articulares',
+      desc: 'Alivio localizado para dolor e inflamación de articulaciones.',
+      details:
+        'Aplicamos medicamentos directamente en la articulación para mejorar movilidad y disminuir dolor con mayor rapidez. Es una opción efectiva para cuadros crónicos cuando el manejo oral no es suficiente.',
+    },
+    {
+      id: 'holter-ritmo',
+      icon: 'Activity',
+      name: 'Holter de ritmo',
+      desc: 'Monitoreo cardíaco continuo de 24 a 48 horas.',
+      details:
+        'Permite detectar arritmias y alteraciones que pueden no verse en un electrocardiograma breve. Se evalúa tu corazón durante tu rutina diaria para un diagnóstico más real y completo.',
+    },
+    {
+      id: 'holter-presion',
+      icon: 'Activity',
+      name: 'Holter de presión',
+      desc: 'MAPA ambulatorio para conocer tu presión arterial en 24 horas.',
+      details:
+        'Registra automáticamente tus valores durante el día y la noche fuera del consultorio. Ayuda a confirmar diagnósticos y ajustar tratamientos antihipertensivos con mayor precisión.',
     },
     {
       id: 'electrocardiograma',
       icon: 'Activity',
       name: 'Electrocardiograma',
-      desc: 'Monitoreo de actividad cardíaca preciso.',
+      desc: 'Evaluación rápida y sin dolor de la actividad eléctrica del corazón.',
       details:
-        'Registro y lectura clínica para apoyar diagnóstico cardiovascular y seguimiento de síntomas cardíacos.',
+        'Es la prueba inicial clave para identificar irregularidades cardíacas en minutos. Permite orientar decisiones clínicas tempranas y seguimiento oportuno ante síntomas cardiovasculares.',
     },
     {
-      id: 'ecocardiograma',
-      icon: 'HeartPulse',
-      name: 'Ecocardiograma',
-      desc: 'Estudio de imagen para evaluar estructura y función del corazón.',
-      details:
-        'Examen no invasivo que permite valorar cavidades cardíacas, válvulas y movimiento del músculo cardíaco para apoyar diagnóstico y control clínico.',
-    },
-    {
-      id: 'ultrasonido',
-      icon: 'HeartPulse',
-      name: 'Ultrasonido',
-      desc: 'Imágenes diagnósticas de alta calidad.',
-      details:
-        'Estudios por imagen no invasivos para evaluación de tejidos y órganos, con interpretación profesional.',
-    },
-    {
-      id: 'espirometria',
-      icon: 'Activity',
-      name: 'Espirometría',
-      desc: 'Valoración de la capacidad respiratoria para control y seguimiento.',
-      details:
-        'Prueba funcional pulmonar para detectar alteraciones respiratorias, evaluar respuesta al tratamiento y seguimiento de pacientes con síntomas respiratorios.',
-    },
-    {
-      id: 'audiometria-ocupacional',
+      id: 'audiometrias',
       icon: 'Microscope',
-      name: 'Audiometría ocupacional',
-      desc:
-        'Evaluación auditiva orientada a vigilancia médica en entornos laborales.',
+      name: 'Audiometrías',
+      desc: 'Evaluación auditiva precisa para detección temprana de pérdida de audición.',
       details:
-        'Aplicamos pruebas auditivas para exámenes de ingreso, periódicos y egreso, con enfoque en prevención de riesgos por exposición al ruido.',
+        'Prueba rápida e indolora que mide cómo percibes tonos y volúmenes en distintas frecuencias. Facilita decisiones de tratamiento y seguimiento según tu perfil auditivo.',
     },
     {
-      id: 'curaciones',
-      icon: 'Syringe',
-      name: 'Curaciones y control de heridas',
-      desc: 'Atención de heridas con manejo clínico y seguimiento seguro.',
-      details:
-        'Limpieza, valoración y cuidado de heridas agudas o crónicas, con recomendaciones de autocuidado para favorecer recuperación y prevenir complicaciones.',
-    },
-    {
-      id: 'nebulizacion',
-      icon: 'Pill',
-      name: 'Nebulización',
-      desc: 'Terapia respiratoria para aliviar síntomas de vías respiratorias.',
-      details:
-        'Aplicación de nebulizaciones bajo supervisión médica para manejo de tos, broncoespasmo e inflamación respiratoria según indicación clínica.',
-    },
-    {
-      id: 'lavado-otico',
-      icon: 'Stethoscope',
-      name: 'Lavado ótico',
-      desc: 'Procedimiento para remover tapón de cerumen y mejorar audición.',
-      details:
-        'Evaluación previa del conducto auditivo y extracción segura del cerumen para aliviar molestias y recuperar la audición en casos indicados.',
-    },
-    {
-      id: 'control-presion-glicemia',
+      id: 'espirometrias',
       icon: 'Activity',
-      name: 'Control de presión y glicemia',
-      desc: 'Monitoreo rápido para seguimiento de pacientes crónicos.',
+      name: 'Espirometrías',
+      desc: 'Medición funcional para conocer el estado real de tus pulmones.',
       details:
-        'Control periódico de signos clave en consulta para detectar variaciones tempranas y ajustar recomendaciones de tratamiento y estilo de vida.',
+        'Este examen no invasivo evalúa cuánto aire inhalas y con qué rapidez lo exhalas. Es clave para detectar alteraciones respiratorias y controlar tu respuesta al tratamiento.',
+    },
+    {
+      id: 'optometrias',
+      icon: 'Eye',
+      name: 'Optometrías',
+      desc: 'Evaluación visual integral para proteger tu salud ocular a largo plazo.',
+      details:
+        'No solo revisa agudeza visual: analiza coordinación y funcionamiento de ambos ojos para detectar problemas antes de que afecten tu calidad de vida. Permite correcciones oportunas y seguimiento personalizado.',
     },
   ],
 };
 
 export const serviceOptions = [
-  'Medicina interna y diabetología',
+  'Medicina interna',
   'Chequeos médicos ocupacionales',
   'Cardiología',
-  'Ecocardiograma',
-  'Pediatría',
-  'Audiometría',
+  'Ortopedia y traumatología',
+  'Fisioterapia',
+  'Pediatría y neonatología',
   'Obesidad y metabolismo',
+  'Ginecología y obstetricia',
+  'Dermatología',
   'Psicología',
-  'Ortopedia',
-  'Laboratorio',
+  'Urología',
+  'Cirugía',
+  'Ultrasonidos',
+  'Cirugías ortopédicas',
+  'Infiltraciones articulares',
+  'Holter de ritmo',
+  'Holter de presión',
+  'Electrocardiograma',
+  'Audiometrías',
+  'Espirometrías',
+  'Optometrías',
   'Otro',
 ];

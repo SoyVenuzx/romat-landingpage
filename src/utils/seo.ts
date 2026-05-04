@@ -43,18 +43,16 @@ export const clinicBusinessData: ClinicBusinessData = {
   name: 'Servicios Médicos ROMAT',
   legalName: 'Servicios Médicos ROMAT',
   description:
-    'Clínica médica local en Villa Sol, Managua (Nicaragua), con medicina interna, especialidades y laboratorio clínico para toda la familia.',
+    'Clínica médica en Villa Sol, Managua, con atención en Masaya. Especialidades médicas, medicina interna, laboratorio clínico, ultrasonidos y más. Atención personalizada para toda la familia en Nicaragua.',
   type: 'MedicalClinic',
   phone: '+50583607978',
   whatsappNumber: '+50583607978',
-  // TODO: Replace with real clinic data
   email: 'serviciosmedicosromat@hotmail.com',
   address: {
     streetAddress:
       'Entrada de Villa Sol, Sabana Grande, segundo andén a mano derecha, edificio B1-6, esquinero.',
     addressLocality: 'Managua',
     addressRegion: 'Managua',
-    // TODO: Replace with real clinic data
     postalCode: '14091',
     addressCountry: 'NI',
   },
@@ -62,7 +60,6 @@ export const clinicBusinessData: ClinicBusinessData = {
     latitude: 12.106097082248313,
     longitude: -86.15754390556445,
   },
-  // TODO: Replace with real clinic data
   openingHours: ['Mo-Fr 07:00-17:00', 'Sa 07:00-12:00'],
   image: '/images/clinic/og.webp',
   social: {
