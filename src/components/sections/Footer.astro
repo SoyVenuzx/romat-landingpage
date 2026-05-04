@@ -1,25 +1,25 @@
 ---
-import { Image } from 'astro:assets';
-import { Facebook, Instagram, Mail, MessageCircle } from 'lucide-react';
-import clinicLogo from '../../assets/branding/logoclinica.png';
-import { clinicBusinessData } from '../../utils/seo';
+import { Image } from "astro:assets";
+import { Facebook, Instagram, Mail, MessageCircle } from "lucide-react";
+import clinicLogo from "../../assets/branding/logoclinica.png";
+import { clinicBusinessData } from "../../utils/seo";
 
 const quickLinks = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Laboratorio', href: '#laboratorio' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Contacto', href: '#contacto' },
+	{ label: "Inicio", href: "#inicio" },
+	{ label: "Servicios", href: "#servicios" },
+	{ label: "Laboratorio", href: "#laboratorio" },
+	{ label: "Nosotros", href: "#nosotros" },
+	{ label: "Contacto", href: "#contacto" },
 ];
 
 const services = [
-  'Medicina Interna y Diabetología',
-  'Chequeo ocupacional',
-  'Cardiología',
-  'Laboratorio',
-  'Pediatría',
+	"Medicina Interna y Diabetología",
+	"Chequeo ocupacional",
+	"Cardiología",
+	"Laboratorio",
+	"Pediatría",
 ];
-const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, '')}`;
+const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, "")}`;
 ---
 
 <footer class="bg-navy text-navy-foreground">

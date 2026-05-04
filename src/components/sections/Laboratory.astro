@@ -1,60 +1,60 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 import {
-  BadgeCheck,
-  CalendarCheck2,
-  ChevronDown,
-  Clock3,
-  Dna,
-  Droplets,
-  FlaskConical,
-  type LucideIcon,
-  TestTube2,
-} from 'lucide-react';
-import labLogo from '../../assets/branding/logollab.png';
-import laboratoryImage from '../../assets/laboratorio.jpg';
+	BadgeCheck,
+	CalendarCheck2,
+	ChevronDown,
+	Clock3,
+	Dna,
+	Droplets,
+	FlaskConical,
+	type LucideIcon,
+	TestTube2,
+} from "lucide-react";
+import labLogo from "../../assets/branding/logollab.png";
+import laboratoryImage from "../../assets/laboratorio.jpg";
 
 import {
-  type LabIcon,
-  type LabPromotion,
-  labPromotions,
-  labServices,
-} from '../../data/lab';
+	type LabIcon,
+	type LabPromotion,
+	labPromotions,
+	labServices,
+} from "../../data/lab";
 
-const laboratoryWhatsAppNumber = '+505 8681 9616';
+const laboratoryWhatsAppNumber = "+505 8681 9616";
 const laboratoryWhatsAppMessage =
-  'Hola, me gustaría consultar información sobre un examen de laboratorio.';
-const laboratoryWhatsAppLink = `https://wa.me/${laboratoryWhatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent(laboratoryWhatsAppMessage)}`;
+	"Hola, me gustaría consultar información sobre un examen de laboratorio.";
+const laboratoryWhatsAppLink = `https://wa.me/${laboratoryWhatsAppNumber.replace(/\D/g, "")}?text=${encodeURIComponent(laboratoryWhatsAppMessage)}`;
 const createPromotionWhatsAppLink = (promotionTitle: string) => {
-  const message = `Hola, quisiera más información sobre el paquete o promoción ${promotionTitle}.`;
-  return `https://wa.me/${laboratoryWhatsAppNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+	const message = `Hola, quisiera más información sobre el paquete o promoción ${promotionTitle}.`;
+	return `https://wa.me/${laboratoryWhatsAppNumber.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
 };
 
 const iconMap: Record<LabIcon, LucideIcon> = {
-  Droplets,
-  Dna,
-  TestTube2,
-  FlaskConical,
+	Droplets,
+	Dna,
+	TestTube2,
+	FlaskConical,
 };
 
 type PromotionWithIndex = {
-  promo: LabPromotion & {
-    origin: 'clinica' | 'laboratorio' | 'combo';
-  };
-  index: number;
+	promo: LabPromotion & {
+		origin: "clinica" | "laboratorio" | "combo";
+	};
+	index: number;
 };
 
 const promotionColumns: [PromotionWithIndex[], PromotionWithIndex[]] = [[], []];
 
 labPromotions.forEach((promo, index) => {
-  promotionColumns[index % 2].push({ promo, index });
+	promotionColumns[index % 2].push({ promo, index });
 });
 
 const promotionFilters = [
-  { value: 'all', label: 'Todas' },
-  { value: 'clinica', label: 'Clínica' },
-  { value: 'laboratorio', label: 'Laboratorio' },
-  { value: 'combo', label: 'Combo' },
+	{ value: "all", label: "Todas" },
+	{ value: "clinica", label: "Clínica" },
+	{ value: "laboratorio", label: "Laboratorio" },
+	{ value: "combo", label: "Combo" },
 ] as const;
 ---
 

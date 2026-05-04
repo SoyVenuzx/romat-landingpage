@@ -1,12 +1,12 @@
 ---
 interface Props {
-  badge: string;
-  title: string;
-  description?: string;
-  badgeColor?: 'primary' | 'accent';
+	badge: string;
+	title: string;
+	description?: string;
+	badgeColor?: "primary" | "accent";
 }
 
-const { badge, title, description, badgeColor = 'primary' } = Astro.props;
+const { badge, title, description, badgeColor = "primary" } = Astro.props;
 
 // const badgeClass =
 //   badgeColor === 'accent'
@@ -14,9 +14,9 @@ const { badge, title, description, badgeColor = 'primary' } = Astro.props;
 //     : 'border border-primary/30 bg-gradient-to-r from-primary/18 via-secondary/16 to-primary/8 text-primary shadow-[0_12px_28px_-18px_hsl(var(--primary)/0.6)]';
 
 const badgeClass =
-  badgeColor === 'accent'
-    ? 'bg-accent/15 text-accent'
-    : 'bg-primary/10 text-primary';
+	badgeColor === "accent"
+		? "bg-accent/15 text-accent"
+		: "bg-primary/10 text-primary";
 ---
 
 <div class="text-center" data-reveal>

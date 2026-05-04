@@ -1,22 +1,22 @@
 ---
 import {
-  Clock3,
-  Facebook,
-  Instagram,
-  MapPin,
-  MessageCircle,
-} from 'lucide-react';
-import { clinicSchedule } from '../../data/clinic-info';
-import { serviceOptions } from '../../data/services';
-import { clinicBusinessData } from '../../utils/seo';
-import ContactForm from '../islands/ContactForm';
-import SectionHeading from '../ui/SectionHeading.astro';
+	Clock3,
+	Facebook,
+	Instagram,
+	MapPin,
+	MessageCircle,
+} from "lucide-react";
+import { clinicSchedule } from "../../data/clinic-info";
+import { serviceOptions } from "../../data/services";
+import { clinicBusinessData } from "../../utils/seo";
+import ContactForm from "../islands/ContactForm";
+import SectionHeading from "../ui/SectionHeading.astro";
 
-const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, '')}`;
+const whatsappLink = `https://wa.me/${clinicBusinessData.whatsappNumber.replace(/\D/g, "")}`;
 const mapsEmbedUrl =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4775.14110811362!2d-86.15754390556445!3d12.106097082248313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73f900412e3fdd%3A0x813bc24dea5aa831!2sServicios%20M%C3%A9dicos%20ROMAT!5e0!3m2!1sen!2sus!4v1775534114252!5m2!1sen!2sus';
+	"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4775.14110811362!2d-86.15754390556445!3d12.106097082248313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73f900412e3fdd%3A0x813bc24dea5aa831!2sServicios%20M%C3%A9dicos%20ROMAT!5e0!3m2!1sen!2sus!4v1775534114252!5m2!1sen!2sus";
 const mapsExternalUrl =
-  'https://www.google.com/maps/search/?api=1&query=12.106097082248313,-86.15754390556445';
+	"https://www.google.com/maps/search/?api=1&query=12.106097082248313,-86.15754390556445";
 ---
 
 <section id="contacto" class="section-vivid section-vivid--cool py-16 lg:py-20">

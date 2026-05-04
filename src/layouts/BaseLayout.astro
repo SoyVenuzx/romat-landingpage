@@ -1,24 +1,24 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import '../styles/global.css';
-import FloatingWhatsApp from '../components/ui/FloatingWhatsApp.astro';
+import { ViewTransitions } from "astro:transitions";
+import "../styles/global.css";
+import FloatingWhatsApp from "../components/ui/FloatingWhatsApp.astro";
 import {
-  buildLocalBusinessSchema,
-  buildPageMeta,
-  clinicBusinessData,
-  type PageMetaInput,
-} from '../utils/seo';
+	buildLocalBusinessSchema,
+	buildPageMeta,
+	clinicBusinessData,
+	type PageMetaInput,
+} from "../utils/seo";
 
 interface Props {
-  meta: PageMetaInput;
+	meta: PageMetaInput;
 }
 
 const { meta } = Astro.props;
-const site = Astro.site?.toString() ?? 'https://www.serviciosmedicosromat.com';
+const site = Astro.site?.toString() ?? "https://www.serviciosmedicosromat.com";
 const pageMeta = buildPageMeta(meta, site);
 const localBusinessSchema = buildLocalBusinessSchema(
-  clinicBusinessData,
-  pageMeta.canonicalUrl,
+	clinicBusinessData,
+	pageMeta.canonicalUrl,
 );
 ---
 
