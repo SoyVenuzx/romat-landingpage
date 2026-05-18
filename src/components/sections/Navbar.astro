@@ -17,7 +17,7 @@ const navLinks = [
 
 <header
   id="site-header"
-  class="fixed left-0 right-0 top-0 z-50 bg-transparent transition-all duration-300"
+  class="fixed left-0 right-0 top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border/50 shadow-sm transition-all duration-300"
 >
   <nav
     class="container mx-auto flex items-center justify-between px-4 py-4 lg:px-8"
@@ -102,26 +102,7 @@ const navLinks = [
 
 <script is:inline>
   const initializeNavbarScrollState = () => {
-    const header = document.getElementById('site-header');
-    if (!header) return;
-
-    if (window.__romatNavbarScrollHandler) {
-      window.removeEventListener('scroll', window.__romatNavbarScrollHandler);
-    }
-
-    const onScroll = () => {
-      if (window.scrollY > 40) {
-        header.classList.add('bg-card/95', 'backdrop-blur-md');
-        header.classList.remove('bg-transparent');
-      } else {
-        header.classList.remove('bg-card/95', 'backdrop-blur-md');
-        header.classList.add('bg-transparent');
-      }
-    };
-
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.__romatNavbarScrollHandler = onScroll;
+    // The user requested a fixed white navbar, so we removed the transparency on scroll logic.
   };
 
   const initializeClinicOpenStatus = () => {
