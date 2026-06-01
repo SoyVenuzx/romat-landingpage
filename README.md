@@ -4,7 +4,7 @@ Landing page oficial de **Servicios Medicos ROMAT**, enfocada en captacion de pa
 
 ## Sitio en produccion
 
-- URL: https://www.serviciosmedicosromat.com
+- URL: https://clinicaromat.com
 
 ## Vista general
 

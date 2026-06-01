@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { meta } = Astro.props;
-const site = Astro.site?.toString() ?? "https://www.serviciosmedicosromat.com";
+const site = Astro.site?.toString() ?? "https://clinicaromat.com";
 const pageMeta = buildPageMeta(meta, site);
 const localBusinessSchema = buildLocalBusinessSchema(
 	clinicBusinessData,

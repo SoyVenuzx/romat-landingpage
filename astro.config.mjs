@@ -10,7 +10,7 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
 	output: "static",
 	// TODO: Replace with real production domain
-	site: "https://www.serviciosmedicosromat.com",
+	site: "https://clinicaromat.com",
 	integrations: [
 		react(),
 		tailwind({
